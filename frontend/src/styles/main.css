@@ -1,0 +1,15 @@
+
+@import url('../assets/fontawesome-free-6.2.0-web/css/all.css');
+body {
+    margin: 0;
+    font-family: sans-serif; 
+    font-size: 13px;
+}
+.scrollable::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: #cdd3d6;
+    border-radius: 1px;
+}
