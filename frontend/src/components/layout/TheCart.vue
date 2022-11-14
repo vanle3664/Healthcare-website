@@ -3,7 +3,7 @@
         <div class="breaker_horizontal"> > Giỏ hàng</div>
         <div class="all_content">
             <div class="left_content">
-                <div class="products" v-for="product in productList" v-bind:key="product.name">
+                <div class="products" v-for="(product, index) in productList" v-bind:key="product.name">
                     <div class="prod_img">
                         <img src="../../assets/product_img.webp">
                     </div>
@@ -11,9 +11,9 @@
                         <div class="top_info">
                             <div class="product_name">{{product.name}}</div>
                             <div class="product_num">
-                                <span class="minus" @click="handleMinus"> - </span>
+                                <span class="minus" @click="handleMinus({index})"> - </span>
                                 <span class="num">{{product.num}}</span>
-                                <span class="add" @click="handleAdd"> + </span>
+                                <span class="add" @click="handleAdd({index})"> + </span>
                             </div>
                         </div>
                         <div class="product_totalPrice">Đơn giá: {{product.num}} x {{product.price}} = {{product.num*product.price}}</div>
@@ -54,16 +54,14 @@ export default {
     computed : {
     },
     methods: {
-        handleAdd(){
-            // console.log(this.$data[["productList"]][0])
-            console.log(this.productList)
-            let num = document.querySelector(".num");
-            num.innerText++;
-
+        handleAdd(index){
+            this.productList[index["index"]]["num"]++;
         },
-        handleMinus(){
-            let num = document.querySelector(".num");
-            if (num.innerText > 0) num.innerText--;
+        handleMinus(index){
+            let num_product = this.productList[index["index"]]["num"];
+            if (num_product > 0) 
+                this.productList[index["index"]]["num"]--;
+            
         },
     }
 }
