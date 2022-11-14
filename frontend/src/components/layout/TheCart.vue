@@ -19,7 +19,13 @@
                         <div class="product_totalPrice">Đơn giá: {{product.num}} x {{product.price}} = {{product.num*product.price}}</div>
                     </div>
                 </div>
-                <div class="delivery_info">Delivery</div>
+                <div class="delivery_info">
+                    <div class="customer_info">
+                        <input  v-model="text" size="20" placeholder="Nhập họ tên" name="Họ và tên người nhận"/>
+                        <input  v-model="text" size="20" placeholder="Nhập số điện thoại" name="Số điện thoại người nhận"/>
+                    </div>
+                    <div class="customer_address">Address</div>
+                </div>
             </div>
             <div class="breaker_vertical"></div>
             <div class="right_content">
@@ -34,6 +40,28 @@
 <script>
 export default {
     name: 'TheCart',
+    props: {
+        isEditing: {
+        type: Boolean,
+        default: true
+        },
+        visible: {
+        type: Boolean,
+        default: true
+        },
+        inputType: {
+        type: String,
+        default: 'text'
+        },
+        placeholder: {
+        type: String,
+        default: ''
+        },
+        isValid: {
+        type: Boolean,
+        default: true
+        },
+    },
     data() {
         return {
             productList : [
@@ -52,6 +80,24 @@ export default {
         }
     },
     computed : {
+        valid() {
+        return this.isValid
+        },
+        input: {
+        get() {
+            if (this.isOnlyAlpha) {
+            let checkedText = this.value !== null ? this.value.replace(/[a-zA-Z]+/g, '') : this.value
+            return checkedText
+            } else if (this.isOnlyNumeric) {
+            let checkedText = this.value !== null ? this.value.replace(/[0-9]+/g, '') : this.value
+            return checkedText
+            }
+            return this.value
+        },
+        set(value) {
+            this.$emit('input', value)
+        }
+        }
     },
     methods: {
         handleAdd(index){
