@@ -24,5 +24,4 @@ export default {
 </script>
 <style scoped>
     @import url('../styles/view/homepage.css');
-    
 </style>
