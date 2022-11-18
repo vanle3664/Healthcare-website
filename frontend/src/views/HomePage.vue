@@ -17,7 +17,7 @@
             </div> 
             <div v-if="isClickBot" class="chat-screen">
                 <div class="chat-title">Chat cùng HEALTHCARE</div>
-                <div class="dialog">
+                <!-- <div class="dialog">
                     <div class="answer">
                         <div class="avatar">
                             <i class="fa-solid fa-user-doctor"></i>
@@ -25,15 +25,44 @@
                         <div class="mess">Answer</div>
                     </div>
                     <div class="ask">
-                        <!-- <div class="avatar">
+                        <div class="avatar">
                             <i class="fa-solid fa-user"></i>
-                        </div> -->
+                        </div>
                         <div class="mess">Ask ask ask ask ask ask ask ask</div>
                     </div>
+                </div> -->
+                <div class="msgs scrollable" ref="msgs">
+                    <div class="wrap-msg" v-for="(msg, index) in msgs" :key="index" :class="getClass(msg)">
+                        <div class="msg" :class="getClass(msg)">
+                            {{msg.content}}
+                        </div>
+                    </div>
                 </div>
-                
+                <div class="send-msg">
+                    <input>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
             </div>
         </div>
+        <!-- <div class="chat-window">
+            <div class="header chat-window-header">
+                Bs. Nguyễn Văn A
+                <div class="exit" @click="exitBtnOnClick">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="msgs scrollable" ref="msgs">
+                <div class="wrap-msg" v-for="(msg, index) in msgs" :key="index" :class="getClass(msg)">
+                    <div class="msg">
+                        {{msg.content}}
+                    </div>
+                </div>
+            </div>
+            <div class="send-msg">
+                <input>
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+        </div> -->
     </div>
 </template>
 <script>
@@ -42,7 +71,9 @@ export default {
     name: 'HomePage',
     data() {
         return {
-            isClickBot: false
+            isClickBot: false,
+            myId: '1',
+            msgs: [],
         }
     },
     props:{
@@ -50,10 +81,83 @@ export default {
     components: {
         InputItem,
     },
+    created(){
+        this.msgs=[
+                {
+                    senderId: '2',
+                    receiverId: '1',
+                    content: 'Do you know BTS ?'
+                },
+                {
+                    senderId: '1',
+                    receiverId: '2',
+                    content: 'International playboys'
+                },
+                {
+                    senderId: '2',
+                    receiverId: '1',
+                    content: 'Do you know BTS ?'
+                },
+                {
+                    senderId: '1',
+                    receiverId: '2',
+                    content: 'International playboys'
+                },
+                {
+                    senderId: '1',
+                    receiverId: '2',
+                    content: 'International playboys djfk akfj alfjk alfj alfkjd djf '
+                },
+                {
+                    senderId: '2',
+                    receiverId: '1',
+                    content: 'Do you know BTS ?'
+                },
+                {
+                    senderId: '1',
+                    receiverId: '2',
+                    content: 'International playboys'
+                },
+                {
+                    senderId: '2',
+                    receiverId: '1',
+                    content: 'Do you know BTS ?'
+                },
+                {
+                    senderId: '1',
+                    receiverId: '2',
+                    content: 'International playboys'
+                },
+                {
+                    senderId: '1',
+                    receiverId: '2',
+                    content: 'International playboys djfk akfj alfjk alfj alfkjd djf '
+                },
+                
+                
+            ]
+    },
     methods:{
         handleClickChat(){
             console.log(!this.isClickBot)
             this.isClickBot = !this.isClickBot
+        },
+        getClass(msg){
+            return {
+                'float-right' : msg.senderId == this.myId
+            }
+        },
+        exitBtnOnClick(){
+            this.$emit('hideChatWindow')
+        },
+        autoScroll(){
+            var element = this.$refs.msgs
+            element.scrollTop = element.scrollHeight;
+        }
+    },
+    watch:{
+        msgs(){
+            this.autoScroll()
         }
     }
 }
