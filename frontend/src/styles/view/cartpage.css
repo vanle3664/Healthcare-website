@@ -19,6 +19,7 @@
         cursor: pointer;
         color: blue;
     }
+
     .all_content{
         width: 90%;
         height: auto;
@@ -141,7 +142,7 @@
             background-color: #ffff;
             align-content: right;
             height:fit-content;
-            position: relative;
+            position: sticky;
             border-radius: 0.5cm;
             display:flex;
             flex-direction: column;
@@ -154,19 +155,22 @@
                 justify-content: center;
                 align-items: center;
             }
-                .order_icon{
+                /* .order_icon{
                     width: 20px;
                     height: 20px;
                     background-image: url('../../assets/fontawesome-free-6.2.0-web/svgs/solid/bag-shopping.svg');
                     background-size: contain;
                     background-repeat: no-repeat;
+                } */
+                .order_top i{
+                    font-size: 25px;
+                    color:#1d48ba;
                 }
 
                 .order_title{
                     font-weight: bold;
                     font-size: 20px;
                     padding-left: 10px;
-                    padding-top: 5px;
                     color:#1d48ba
                 }
             .order_info{

@@ -39,7 +39,8 @@
             <div class="breaker_vertical"></div>
             <div class="right_content">
                 <div class="order_top">
-                    <div class="order_icon"></div>
+                    <!-- <div class="order_icon"></div> -->
+                    <i class="fa-solid fa-cart-shopping"></i>
                     <div class="order_title">THÔNG TIN ĐƠN HÀNG</div>
                 </div>
                 <div class="order_info">
