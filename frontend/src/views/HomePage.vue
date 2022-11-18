@@ -44,25 +44,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="chat-window">
-            <div class="header chat-window-header">
-                Bs. Nguyễn Văn A
-                <div class="exit" @click="exitBtnOnClick">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </div>
-            <div class="msgs scrollable" ref="msgs">
-                <div class="wrap-msg" v-for="(msg, index) in msgs" :key="index" :class="getClass(msg)">
-                    <div class="msg">
-                        {{msg.content}}
-                    </div>
-                </div>
-            </div>
-            <div class="send-msg">
-                <input>
-                <i class="fa-solid fa-paper-plane"></i>
-            </div>
-        </div> -->
     </div>
 </template>
 <script>
