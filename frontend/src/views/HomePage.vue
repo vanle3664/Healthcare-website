@@ -11,6 +11,9 @@
                 <i class="fa-solid fa-camera"></i>
             </div>
         </div>
+        <div class="chat-hidden">
+            <!-- <i class="fa-solid fa-comments"></i> -->
+        </div>
     </div>
 </template>
 <script>
@@ -19,6 +22,8 @@ export default {
     name: 'HomePage',
     components: {
         InputItem,
+    },
+    methods:{
     }
 }
 </script>

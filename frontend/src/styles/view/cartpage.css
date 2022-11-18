@@ -7,13 +7,17 @@
     position: relative;
 }
     .breaker_horizontal{
-        width: 100%;
+        width: fit-content;
         height: 50px;
-        font-size: 25px;
-        padding-top: 10px;
-        padding-left: 10px;
-        position: sticky;
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 20px;
+        padding-left: 5%;
         top: 0px;
+    }
+    .breaker_horizontal:hover{
+        cursor: pointer;
+        color: blue;
     }
     .all_content{
         width: 90%;
@@ -22,7 +26,7 @@
         color: rgb(5, 5, 5);
         padding-left: 5%;
         padding-right: 5%;
-
+        position: relative;
     } 
         .left_content{
 
@@ -54,8 +58,9 @@
                         position: relative;
                     }
                         .product_name{
-                            font-size: 20px;
+                            font-size: 17px;
                             width: 70%;
+                            padding-top: 10px;
                         }
                         .product_num{
                             width: 20%;
@@ -94,14 +99,35 @@
                 right: 20px;
 
             }
+            .delivery_info input{
+                width: 50%;
+                border-radius: 20px;
+                height: 40px;
+                padding: 0 20px;
+                border: 1px solid #e5e5e5;
+                box-sizing: border-box;
+                font-size: 15px;
+            }
+            .delivery_info input:focus{
+                border: 1px solid #0082DE;
+                outline: none;
+            }
+                .delivery_title{
+                    font-size: 17px;
+                    padding: 10px;
+                    font-weight: bold;
+                }
                 .customer_info{
                     height: 30px;
                     font-size: 15px;
                     border-radius: 4px;
                     display: flex;
                     justify-content: space-between;
+                    padding-bottom: 20px;;
                 }
-                .customer_info .phone{
+                .customer_address{
+                    display: flex;
+                    justify-content: space-between;
                 }
 
         .all_content .breaker_vertical{
@@ -110,12 +136,77 @@
         }
 
         .all_content .right_content {
-            display: block;
             color: rgb(5, 5, 5);
             width: 38%;
             background-color: #ffff;
-            padding-top: 10px;
-            padding-left: 10px;
             align-content: right;
+            height:fit-content;
+            position: relative;
             border-radius: 0.5cm;
+            display:flex;
+            flex-direction: column;
+            padding: 10px;
         }
+            .order_top{
+                display: flex;
+                flex-direction: row;
+                padding-bottom: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+                .order_icon{
+                    width: 20px;
+                    height: 20px;
+                    background-image: url('../../assets/fontawesome-free-6.2.0-web/svgs/solid/bag-shopping.svg');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+
+                .order_title{
+                    font-weight: bold;
+                    font-size: 20px;
+                    padding-left: 10px;
+                    padding-top: 5px;
+                    color:#1d48ba
+                }
+            .order_info{
+                display:flex;
+                flex-direction: column;
+                padding: 5%;
+                font-size: 18px;
+                color: #616366;
+            }
+                .price {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            .sumup{
+                display:flex;
+                padding: 5%;
+                font-size: 20px;
+                font-weight: 550;
+                color: #080808;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: #080808;
+            }
+                .order_bottom {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                }
+                    .btnPay{
+                        width: fit-content;
+                        height: 25px;
+                        padding: 5%;
+                        background-color: #1d48ba;
+                        border-radius: 100px;
+                        color:#ffff;
+                        font-weight: 700;
+                        font-size: 18px;
+                        align-content: center;
+                        justify-self: center;
+                    }
+                    
