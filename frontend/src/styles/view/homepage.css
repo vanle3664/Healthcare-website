@@ -120,9 +120,11 @@
                     display: flex;
                     flex-direction: row;
                     height: fit-content;
+                    color:#0360a3; 
                 }
                 .wrap-msg.float-right{
                     justify-content: right;
+                    color:rgb(255, 255, 255)
                     /* background-color: #8cb4d4; */
                 }
                     .wrap-msg .msg{
