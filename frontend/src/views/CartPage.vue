@@ -1,6 +1,6 @@
 
 <template lang="">
-    <div class="cart_page">
+    <div class="cart_page" v-if="productList.length > 0">
         <div class="breaker_horizontal" @click="handleBack"> 
             <i class="fa-solid fa-circle-arrow-left"></i>
             Quay lại mua hàng
@@ -19,6 +19,9 @@
                                 <span class="num">{{product.num}}</span>
                                 <span class="add" @click="handleAdd({index})"> + </span>
                             </div>
+                            <div class="delete" @click="handleDelete({index})">
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
                         </div>
                         <div class="product_totalPrice">Đơn giá: {{product.num}} x {{product.price}} = {{product.num*product.price}}</div>
                     </div>
@@ -29,10 +32,15 @@
                         <input  v-model="text" size="20" placeholder="Nhập họ tên" name="Họ và tên người nhận"/>
                         <input  v-model="text" size="20" placeholder="Nhập số điện thoại" name="Số điện thoại người nhận"/>
                     </div>
+                    <div class="delivery_title">Địa chỉ</div>
                     <div class="customer_address">
                         <input placeholder="Nhập tỉnh/thành phố"/>
                         <input placeholder="Nhập quận/huyện"/>
                         <input placeholder="Nhập phường/xã"/>
+                    </div>
+                    <div class="delivery_title">Ghi chú</div>
+                    <div>
+                        <input placeholder="Ghi chú đơn hàng"/>
                     </div>
                 </div>
             </div>
@@ -63,14 +71,16 @@
             </div>        
         </div>
     </div>
-
-
-    
+    <div v-else class="empty_cart">
+        <div class="empty_cart_icon">
+            <i class="fa-solid fa-cart-plus"></i>
+            <!-- <i src="https://nhathuoclongchau.com/frontend_v3/images/cart-status-mb.png"></i> -->
+        </div>
+        <div class="empty_cart_title">Giỏ hàng của bạn đang trống</div>
+        <div class="backBtn" @click="handleBack">TRANG CHỦ MUA SẮM</div>
+    </div>
 </template>
 <script>
-//import { library } from "@fortawesome/fontawesome-svg-core";
-//import { faPhone } from "@fortawesome/free-solid-svg-icons";
-//import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
     name: 'TheCart',
     components: {
@@ -82,15 +92,6 @@ export default {
             productList : [
                 {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
                 {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 1, price: 30000},
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
             ],
         
         }
@@ -109,6 +110,14 @@ export default {
         },
         handleBack(){
             this.$router.push('/')
+        },
+        handleDelete(index){
+            console.log(this.productList.length)
+            if (this.productList.length == 1 ){
+                this.productList = []
+            }
+            else 
+                this.productList = this.productList.splice(index["index"] - 1, 1)
         },
         cartTotal(){
             let a = this.productList.reduce( (acc, item) => {
