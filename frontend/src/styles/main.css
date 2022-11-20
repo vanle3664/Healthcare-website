@@ -14,3 +14,7 @@ body {
     background-color: #cdd3d6;
     border-radius: 1px;
 }
+.scrollable-invisible::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+}
