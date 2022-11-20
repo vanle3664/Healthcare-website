@@ -74,13 +74,6 @@
 import InputItem from '../components/common/InputItem.vue';
 export default {
     name: 'HomePage',
-    data() {
-        return {
-            isClickBot: false,
-            myId: '1',
-            msgs: [],
-        }
-    },
     props:{
     },
     components: {
@@ -174,7 +167,10 @@ export default {
                     name: 'Vitamin5',
                     price: '230.000',
                 }
-            ]
+            ],
+            isClickBot: false,
+            myId: '1',
+            msgs: [],
         }
     },
     methods: {
