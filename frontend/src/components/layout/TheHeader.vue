@@ -14,7 +14,7 @@ export default {
     name: 'TheHeader',
     methods: {
         handleClickCart(){
-            this.$router.push('/mycart')
+            this.$router.push('/my-cart')
         },
         handleClickName(){
             this.$router.push('/')

@@ -38,12 +38,18 @@
             padding-left: 10px;
             border-radius: 0.5cm;
         }
+            .cart_title {
+                font-size: 18px;
+                padding: 10px;
+                font-weight: bold;
+                color:#1d48ba;
+            }
             .products{
                 border-color: #E1EFF9;
                 padding-top: 20px;
                 padding-left: 10px;
                 display: flex;
-
+                padding-bottom: 10px;
             }
                 .prod_img img{
                     width: 100px;
@@ -141,7 +147,16 @@
                     font-size: 17px;
                     padding: 10px;
                     font-weight: bold;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
                 }
+                    .note{
+                        color:#f70000;
+                        font-size: 13px;
+                        padding-left: 10%;
+                        
+                    }
                 .customer_info{
                     height: 30px;
                     font-size: 15px;
@@ -241,7 +256,6 @@
 .empty_cart{
     display: flex;
     flex-direction: column;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;

@@ -195,7 +195,7 @@ export default {
             console.log(event.target.innerHTML)
             this.searchText = event.target.innerHTML
         },
-         handleClickChat(){
+        handleClickChat(){
             console.log(!this.isClickBot)
             this.isClickBot = !this.isClickBot
         },

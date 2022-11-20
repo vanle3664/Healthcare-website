@@ -1,0 +1,22 @@
+.success-order{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: calc(100vh - 70px - 40px);
+    height: calc(100vh - 70px - 40px);
+}
+    .success-icon{
+        color: #1d48ba;
+        font-size: 150px;
+    }
+    .success-text{
+        font-size: 30px;
+        font-weight: bold;
+        padding: 10px;
+    }
+    .email-confirm{
+        font-size: 18px;
+        padding: 10px;
+    }

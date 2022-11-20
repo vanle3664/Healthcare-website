@@ -7,6 +7,7 @@
         </div>
         <div class="all_content">
             <div class="left_content">
+                <div class="cart_title">Bạn có {{this.productList.length}} sản phẩm trong giỏ </div>
                 <div class="products" v-for="(product, index) in productList" v-bind:key="product.name">
                     <div class="prod_img">
                         <img src="../assets/product_img.webp">
@@ -27,16 +28,23 @@
                     </div>
                 </div>
                 <div class="delivery_info">
-                    <div class="delivery_title">Nhập thông tin người nhận: </div>
+                    <div class="delivery_title">Nhập thông tin người nhận</div>
                     <div class="customer_info">
                         <input  v-model="text" size="20" placeholder="Nhập họ tên" name="Họ và tên người nhận"/>
                         <input  v-model="text" size="20" placeholder="Nhập số điện thoại" name="Số điện thoại người nhận"/>
                     </div>
+                    <div class="delivery_title">Email
+                        <div class="note">HealthCare sẽ cập nhật thông tin đơn hàng thường xuyên về email</div>
+                    </div>
+                    <div>
+                        <input placeholder="Nhập email"/>
+                    </div>
                     <div class="delivery_title">Địa chỉ</div>
                     <div class="customer_address">
-                        <input placeholder="Nhập tỉnh/thành phố"/>
-                        <input placeholder="Nhập quận/huyện"/>
+                        <input placeholder="Nhập số nhà"/>
                         <input placeholder="Nhập phường/xã"/>
+                        <input placeholder="Nhập quận/huyện"/>
+                        <input placeholder="Nhập tỉnh/thành phố"/>
                     </div>
                     <div class="delivery_title">Ghi chú</div>
                     <div>
@@ -66,7 +74,7 @@
                     <div class="price_value">{{orderTotal()}}</div>
                 </div>
                 <div class="order_bottom">
-                    <div class="btnPay">Đặt hàng ngay</div>
+                    <div class="btnPay" @click="handleOrder()">Đặt hàng ngay</div>
                 </div>
             </div>        
         </div>
@@ -136,6 +144,9 @@ export default {
             }, 0)
             let b = 10000
             return (a + b).toLocaleString({style : 'currency', currency : 'VND'})
+        },
+        handleOrder(){
+            this.$router.push("/success-order")
         }
     }
 }
