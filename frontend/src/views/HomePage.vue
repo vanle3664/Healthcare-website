@@ -5,13 +5,14 @@
                 <InputItem
                     label="Tìm kiếm theo tên thuốc"
                     :searchInput="true"
+                    v-model="searchText"
                 />
             </div>
             <div class="img-search">
                 <i class="fa-solid fa-camera"></i>
             </div>
             <div class="hot-search scrollable-invisible">
-                <div class="hot-item" v-for="(item, index) in hotItems" :key="index">{{item}}</div>
+                <div class="hot-item" v-for="(item, index) in hotItems" :key="index" v-on:click="searchRecOnClick($event)">{{item}}</div>
             </div>
         </div>
         <div class="product-category">
@@ -45,8 +46,9 @@ export default {
     },
     data(){
         return{
+            searchText: '',
             hotItems: [
-                'Thuốc', 'Vitamin', 'Thực phẩm chức năng','Thuốc', 'Vitamin', 'Thực phẩm chức năng','Thuốc', 'Vitamin', 'Thực phẩm chức năng','Thuốc', 'Vitamin', 'Thực phẩm chức năng',
+                'Thuốc', 'Vitamin', 'Thực phẩm chức năng'
             ],
             products: [
                 {
@@ -94,6 +96,15 @@ export default {
             var productWidth = productCard.getBoundingClientRect().width;
             this.$refs.productList.scrollLeft -= productWidth
             
+        },
+        searchRecOnClick(event){
+            console.log(event.target.innerHTML)
+            this.searchText = event.target.innerHTML
+        }
+    },
+    watch: {
+        searchText: function(){
+            console.log(this.searchText)
         }
     }
 }

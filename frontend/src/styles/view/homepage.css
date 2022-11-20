@@ -9,7 +9,7 @@
         font-weight: bold;
     }
     .homepage .search {
-        width: 80%;
+        width: 70%;
         background-color: #fff;
         margin-top: 50px;
         border-radius: 10px;
@@ -66,7 +66,7 @@
                 margin-right: 0;
             }
         .homepage .product-category{
-            width: 80%;
+            width: 70%;
             background-color: #fff;
             margin-top: 50px;
             border-radius: 10px;
@@ -75,6 +75,15 @@
             box-sizing: border-box;
             position: relative;
         }
+            .homepage .product-category a{
+                text-decoration: none;
+                position: absolute;
+                right: 20px;
+                color: #0266ad;
+            }
+            .homepage .product-category a:hover{
+                text-decoration: underline;
+            }
             .homepage .product-category .product-list{
                 max-width: 100%;
                 display: flex;
