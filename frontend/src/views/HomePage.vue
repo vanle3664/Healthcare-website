@@ -4,7 +4,7 @@
             <div class="text-search">
                 <InputItem
                     label="Tìm kiếm theo tên thuốc"
-                    searchInput="True"
+                    :searchInput="true"
                 />
             </div>
             <div class="img-search">
@@ -16,7 +16,11 @@
         </div>
         <div class="product-category">
             <label>Thực phẩm chức năng</label>
-            <div class="product-list scrollable-invisible">
+            <router-link to='/products'>Xem thêm</router-link>
+            <div class="product-list scrollable-invisible" ref="productList">
+                <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
                 <div class="product-card" v-for="(product, index) in products" :key="index">
                     <div class="product-img">
                         <img :src="getImgUrl(product.img)">
@@ -24,6 +28,9 @@
                     
                     <div class="product-name">{{product.name}}</div>
                     <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
+                </div>
+                <div class="next-btn slide-btn" v-on:click="nextBtnOnClick">
+                    <i class="fa-solid fa-chevron-right"></i>
                 </div>
             </div>
         </div>
@@ -44,27 +51,27 @@ export default {
             products: [
                 {
                     img: 'default-drug',
-                    name: 'Vitamin',
+                    name: 'Vitamin1',
                     price: '230.000',
                 },
                 {
                     img: 'default-drug',
-                    name: 'Vitamin',
+                    name: 'Vitamin2',
                     price: '230.000',
                 },
                 {
                     img: 'default-drug',
-                    name: 'Vitamin',
+                    name: 'Vitamin3',
                     price: '230.000',
                 },
                 {
                     img: 'default-drug',
-                    name: 'Vitamin',
+                    name: 'Vitamin4',
                     price: '230.000',
                 },
                 {
                     img: 'default-drug',
-                    name: 'Vitamin',
+                    name: 'Vitamin5',
                     price: '230.000',
                 }
             ]
@@ -73,6 +80,20 @@ export default {
     methods: {
         getImgUrl(drug) {
             return require('../assets/images/' + drug +'.jpg');
+        },
+        nextBtnOnClick(){
+            var productCard = document.querySelector('.product-card')
+            var productWidth = productCard.getBoundingClientRect().width
+            this.$refs.productList.scrollLeft += productWidth
+            // console.log(this.$refs.productList.scrollLeft)
+            // console.log(this.$refs.productList.parentElement.getBoundingClientRect().width - 40)
+            // console.log(this.$refs.productList.getBoundingClientRect().width)
+        },
+        prevBtnOnClick(){
+            var productCard = document.querySelector('.product-card')
+            var productWidth = productCard.getBoundingClientRect().width;
+            this.$refs.productList.scrollLeft -= productWidth
+            
         }
     }
 }

@@ -73,6 +73,7 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             padding: 20px;
             box-sizing: border-box;
+            position: relative;
         }
             .homepage .product-category .product-list{
                 max-width: 100%;
@@ -117,4 +118,30 @@
                     font-weight: bold;
                     font-size: 15px;
                 }
-            
+            .homepage .product-category .slide-btn{
+                width: 35px;
+                height: 35px;
+                background-color: #0082DE;
+                color: #fff;
+                position: absolute;
+                cursor: pointer;
+                border-radius: 100%;
+                text-align: center;
+                line-height: 35px;
+                /* margin-bottom: auto;
+                margin-top: auto;
+                bottom: 0;
+                top: 0;
+                text-align: center; */
+                top: 50%;
+                bottom: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 13px;
+            }
+            .homepage .product-category .slide-btn:hover{
+                font-size: 17px;
+                background-color: #0266ad;
+            }
+            .homepage .product-category .slide-btn.next-btn{
+                right: 0;
+            }
