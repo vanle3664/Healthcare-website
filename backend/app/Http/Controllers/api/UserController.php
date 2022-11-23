@@ -10,6 +10,7 @@ use JWTAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 
 class UserController extends Controller
@@ -33,16 +34,8 @@ class UserController extends Controller
         $request['password']=Hash::make($request['password']);
         $request['token'] = Str::random(32);
         $user = User::create($request->toArray());
-        $token = JWTAuth::login($user);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'User created successfully',
-            'user' => $user,
-            'authorisation' => [
-                'token' => $token,
-                'type' => 'bearer',
-            ]
-        ]);
+        $token = JWTAuth::fromUser($user);
+        return response()->json(compact('user','token'),201);
     }
    
     public function login(Request $request)
@@ -56,22 +49,15 @@ class UserController extends Controller
             return response(['errors'=>$validator->errors()->all()], 422);
         }
         $credentials = $request->only('email', 'password');
-        $token = JWTAuth::attempt($credentials);
-        if (!$token) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized',
-            ], 401);
+        try {
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid_credentials'], 400);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500);
         }
-        $user = JWTAuth::user();
-        return response()->json([
-                'status' => 'success',
-                'user' => $user,
-                'authorisation' => [
-                    'token' => $token,
-                    'type' => 'bearer',
-                ]
-            ]);
+
+        return response()->json(compact('token'));
     }
     public function logout()
     {

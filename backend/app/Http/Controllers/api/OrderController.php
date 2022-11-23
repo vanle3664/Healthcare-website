@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\Orders;
 use JWTAuth;
+use Namshi\JOSE\SimpleJWS;
 
 class OrderController extends Controller
 {
@@ -53,11 +54,20 @@ class OrderController extends Controller
         {
             return response(['errors'=>$validator->errors()->all()], 422);
         }
-        if ($request->header('Authorization')){
-            $user = JWTAuth::parseToken()->authenticate();
-            $request['customer_id']= $user->_id;
-            $request['customer_name']= $user->name;
-        }
+
+
+        // $secret = config('jwt.secret');
+        // $jws = SimpleJWS::load($token);
+        // if (!$jws->isValid($secret)) {
+        //     return response()->json([], 401); // unauthorized
+        // }else {
+
+        //     $user = $this->jwt->User();
+        //     $user = JWTAuth::parseToken()->authenticate();
+        //     $request['customer_id']= $user->_id;
+        //     $request['customer_name']= $user->name;
+        // }
+       
         $request['code']=Str::random(10);
         $request['status'] = 0;
         $orders = Orders::create($request->toArray());
