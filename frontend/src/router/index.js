@@ -4,6 +4,7 @@ import CartPage from '../views/CartPage.vue'
 import SuccessOrderPage from '../views/SuccessOrder.vue'
 import SearchPage from '../views/SearchPage.vue'
 
+
 const routes = [
     {
         path: '/',
@@ -24,7 +25,7 @@ const routes = [
         path: '/search',
         name: 'search',
         component: SearchPage,
-    }
+    },
 ]
 
 const router = createRouter({

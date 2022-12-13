@@ -304,7 +304,7 @@
         top: 5%;
         margin: auto;
         background: white;
-        border-radius: all 15px;
+        border-radius: 15px;
     }
     .popup-header{
         display: flex;
@@ -314,7 +314,8 @@
         background-color: #1d48ba;
         color: white;
         font-size: large;
-        
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
     }
         .popup-header i:hover{
             color: #034f86;

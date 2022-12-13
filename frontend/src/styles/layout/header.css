@@ -23,6 +23,26 @@
         margin-left: 5px;
         cursor: pointer;
     }
+    .header .admin-account{
+        right: 250px;
+        position: absolute;
+        display: flex;
+    }
+    .header .admin-account :hover{
+        cursor: pointer;
+    }
+        .header .admin-account i{
+            color: white;
+            font-size: 25px;
+        }
+        .header .admin-account div{
+            position: absolute;
+            left: 30px;
+            height: 30px;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 14px;
+        }
     .header .cart{
         position: absolute;
         right: 10px;
@@ -53,3 +73,61 @@
             font-weight: bold;
             font-size: 14px;
         }
+.login-modal{
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 200;
+}
+.login-inner{
+    width: 500px;
+    position: relative;
+    top: 5%;
+    margin: auto;
+    background: white;
+    border-radius: 15px;
+}
+.login-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #1d48ba;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+    .login-header i:hover{
+        color: #034f86;
+    }
+.login-content{
+    padding: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+}
+
+    .login-content .password{
+        margin-top: 30px;
+    }
+
+.login-footer{
+    padding: 0px 50px 30px 0;
+    text-align: right;
+}
+    .login-footer button{
+        padding: 10px 20px;
+        background:#1d48ba;
+        color: white;
+        border: 0;
+        border-radius: 20px;
+    }
+.hide {
+    display: none;
+}
