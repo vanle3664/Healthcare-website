@@ -9,7 +9,7 @@
                 />
             </div>
             <div class="img-search">
-                <i class="fa-solid fa-camera"></i>
+                <i class="fa-solid fa-camera" @click="handleSearchByImage()"></i>
             </div>
             <div class="hot-search scrollable-invisible">
                 <div class="hot-item" v-for="(item, index) in hotItems" :key="index" v-on:click="searchRecOnClick($event)">{{item}}</div>
@@ -41,20 +41,6 @@
             </div> 
             <div v-if="isClickBot" class="chat-screen">
                 <div class="chat-title">Chat cùng HEALTHCARE</div>
-                <!-- <div class="dialog">
-                    <div class="answer">
-                        <div class="avatar">
-                            <i class="fa-solid fa-user-doctor"></i>
-                        </div>
-                        <div class="mess">Answer</div>
-                    </div>
-                    <div class="ask">
-                        <div class="avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="mess">Ask ask ask ask ask ask ask ask</div>
-                    </div>
-                </div> -->
                 <div class="msgs scrollable" ref="msgs">
                     <div class="wrap-msg" v-for="(msg, index) in msgs" :key="index" :class="getClass(msg)">
                         <div class="msg" :class="getClass(msg)">
@@ -67,6 +53,23 @@
                     <i class="fa-solid fa-paper-plane"></i>
                 </div>
             </div>
+        </div>
+        <div class="model-ocr-popup hide">
+            <div class="popup-inner">
+                <div class="popup-header">
+                    <div>Tìm kiếm bằng hình ảnh</div>
+                    <i class="fas fa-times" @click="handleCloseSearchByImage()"></i>
+                </div>
+                <div class="popup-content">
+                    <p>Upload ảnh ở đây</p>
+                    <input class="image-input" ref="imageInput" type="file" @input="pickFile()">
+                    <div class="image-preview-wrapper" :style="{ 'background-image': `url(${previewImage})` }" @click="selectImage()"></div>
+                </div>
+                <div class="popup-footer">
+                    <button>Tìm kiếm</button>
+                </div>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -171,6 +174,7 @@ export default {
             isClickBot: false,
             myId: '1',
             msgs: [],
+            previewImage: null,
         }
     },
     methods: {
@@ -210,6 +214,31 @@ export default {
         autoScroll(){
             var element = this.$refs.msgs
             element.scrollTop = element.scrollHeight;
+        },
+        handleSearchByImage(){
+            let modal = document.querySelector(".model-ocr-popup")
+            modal.classList.toggle("hide")
+        },
+        handleCloseSearchByImage(){
+            let modal = document.querySelector(".model-ocr-popup")
+            modal.classList.toggle("hide")
+        },
+        pickFile(){
+            let input = this.$refs.imageInput
+            console.log(input)
+            let file = input.files
+            console.log(file)
+            if (file && file[0]) {
+                let reader = new FileReader 
+                reader.onload = e => {
+                    this.previewImage = e.target.result
+                }
+                reader.readAsDataURL(file[0])
+                this.$emit('input', file[0])
+            }
+        },
+        selectImage(){
+            this.$refs.imageInput.click()
         }
     },
     watch: {

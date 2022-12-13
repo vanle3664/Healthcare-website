@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import CartPage from '../views/CartPage.vue'
 import SuccessOrderPage from '../views/SuccessOrder.vue'
+import SearchPage from '../views/SearchPage.vue'
 
 const routes = [
     {
@@ -18,6 +19,11 @@ const routes = [
         path: '/success-order',
         name: 'success-order',
         component: SuccessOrderPage,
+    },
+    {
+        path: '/search',
+        name: 'search',
+        component: SearchPage,
     }
 ]
 

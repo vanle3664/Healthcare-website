@@ -6,7 +6,7 @@
             :class="{'input-search':searchInput}"
             :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
         >
-        <div class="search-icon" v-if="searchInput">
+        <div class="search-icon" v-if="searchInput" @click="handleClickSearch()">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
     </div>
@@ -14,6 +14,11 @@
 <script>
 export default {
     name: 'InputItem',
+    data(){
+        return {
+            isClickSearch: false,
+        }
+    },
     props: {
         label:{
             type: String,
@@ -36,6 +41,12 @@ export default {
     //         input: ''
     //     }
     // },
+    methods: {
+        handleClickSearch(){
+            this.isClickSearch = true
+            this.$router.push("/search")
+        }
+    },
     watch:{
        
     }

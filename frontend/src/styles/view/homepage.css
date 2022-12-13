@@ -162,7 +162,7 @@
     }
         .homepage .chat-bot .chat-icon{
             padding: 1%;
-            background-color: #0082DE;
+            background-color: #6baae0;
             border-radius: 100%;
             border:#ffff;
             color: #ffff;
@@ -290,6 +290,67 @@
                     cursor: pointer;
                     font-size: 25px;
                 }
+    .model-ocr-popup{
+        background: rgba(0, 0, 0, 0.6);
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+    }
+
+    .popup-inner{
+        width: 700px;
+        position: relative;
+        top: 5%;
+        margin: auto;
+        background: white;
+        border-radius: all 15px;
+    }
+    .popup-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background-color: #1d48ba;
+        color: white;
+        font-size: large;
+        
+    }
+        .popup-header i:hover{
+            color: #034f86;
+        }
+    .popup-content{
+        padding: 15px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+        .popup-content .image-input{
+           
+        }
+        .popup-content .image-preview-wrapper{
+            width: auto;
+            height: 300px;
+            display: block;
+            cursor: pointer;
+            margin: 10px auto 10px;
+            background-size: cover;
+            background-position: center center;
+        }
+    .popup-footer{
+        padding: 15px;
+        text-align: right;
+    }
+    .popup-footer button{
+        padding: 10px 20px;
+        background:#1d48ba;
+        color: white;
+        border: 0;
+        border-radius: 20px;
+    }
+
+    .hide {
+        display: none;
+    }
 
             
 
