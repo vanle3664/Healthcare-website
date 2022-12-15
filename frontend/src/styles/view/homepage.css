@@ -94,7 +94,7 @@
                 margin: 10px 0;
             }
             /**/
-            .homepage .product-category .product-list .product-card{
+            /* .homepage .product-category .product-list .product-card{
                 border: 1px solid #b5b5b5;
                 margin: 0 10px;
                 border-radius: 15px;
@@ -130,7 +130,7 @@
                     color:#0266ad;
                     font-weight: bold;
                     font-size: 15px;
-                }
+                } */
                 /**/
             .homepage .product-category .slide-btn{
                 width: 35px;
@@ -142,11 +142,6 @@
                 border-radius: 100%;
                 text-align: center;
                 line-height: 35px;
-                /* margin-bottom: auto;
-                margin-top: auto;
-                bottom: 0;
-                top: 0;
-                text-align: center; */
                 top: 50%;
                 bottom: 50%;
                 transform: translate(-50%, -50%);

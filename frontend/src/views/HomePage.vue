@@ -23,24 +23,30 @@
                 <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick">
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
-                <div class="product-card" v-for="(product, index) in products" :key="index">
+                <!-- <div class="product-card" v-for="(product, index) in products" :key="index">
                     <div class="product-img">
                         <img :src="getImgUrl(product.img)">
                     </div>
                     
                     <div class="product-name">{{product.name}}</div>
                     <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
-                </div>
-                <!-- <Product  v-for="(product, index) in products" :key="index">
-                    name="hi"
-                    price="product.price"
-                </Product> -->
+                </div> -->
+                <Product v-for="(product, index) in products" :key="index" 
+                    :name="product.name"
+                    :price="product.price">
+                </Product>
                 <div class="next-btn slide-btn" v-on:click="nextBtnOnClick">
                     <i class="fa-solid fa-chevron-right"></i>
                 </div>
             </div>
         </div>
-        <!-- <GridProducts/> -->
+        <GridProducts
+            :productsList="products"
+        />
+        <Button
+            text="ok"
+            color="pink"
+        />
         <div class="chat-bot">
             <div class="chat-icon" @click="handleClickChat()">
                 <i class="fa-solid fa-comments"></i>
@@ -81,14 +87,15 @@
 </template>
 <script>
 import InputItem from '../components/common/InputItem.vue';
-// import GridProducts from '@/components/base/GridProducts.vue';
-// import Product from '@/components/base/Product.vue';
+import GridProducts from '@/components/base/GridProducts.vue';
+import Product from '@/components/base/Product.vue';
+import Button from '@/components/common/Button.vue';
 export default {
     name: 'HomePage',
     props:{
     },
     components: {
-        InputItem
+        InputItem, GridProducts, Product, Button
     },
     created(){
         this.msgs=[
