@@ -6,6 +6,7 @@
                     label="Tìm kiếm theo tên thuốc"
                     :searchInput="true"
                     v-model="searchText"
+                    @inputOnEnter="setSearchValue"
                 />
             </div>
             <div class="img-search">
@@ -30,11 +31,16 @@
                     <div class="product-name">{{product.name}}</div>
                     <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
                 </div>
+                <!-- <Product  v-for="(product, index) in products" :key="index">
+                    name="hi"
+                    price="product.price"
+                </Product> -->
                 <div class="next-btn slide-btn" v-on:click="nextBtnOnClick">
                     <i class="fa-solid fa-chevron-right"></i>
                 </div>
             </div>
         </div>
+        <!-- <GridProducts/> -->
         <div class="chat-bot">
             <div class="chat-icon" @click="handleClickChat()">
                 <i class="fa-solid fa-comments"></i>
@@ -75,12 +81,14 @@
 </template>
 <script>
 import InputItem from '../components/common/InputItem.vue';
+// import GridProducts from '@/components/base/GridProducts.vue';
+// import Product from '@/components/base/Product.vue';
 export default {
     name: 'HomePage',
     props:{
     },
     components: {
-        InputItem,
+        InputItem
     },
     created(){
         this.msgs=[
@@ -239,12 +247,12 @@ export default {
         },
         selectImage(){
             this.$refs.imageInput.click()
+        },
+        setSearchValue(){
+            console.log(`Search key word is: ${this.searchText}`)
         }
     },
     watch: {
-        searchText: function(){
-            console.log(this.searchText)
-        },
         msgs(){
             this.autoScroll()
         }

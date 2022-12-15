@@ -5,6 +5,7 @@
         <input
             :class="{'input-search':searchInput}"
             :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
+            @keyup.enter="setSearchValue"
         >
         <div class="search-icon" v-if="searchInput" @click="handleClickSearch()">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -45,6 +46,9 @@ export default {
         handleClickSearch(){
             this.isClickSearch = true
             this.$router.push("/search")
+        },
+        setSearchValue(){
+            this.$emit('inputOnEnter')
         }
     },
     watch:{

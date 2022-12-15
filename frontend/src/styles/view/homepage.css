@@ -93,12 +93,14 @@
                 overflow-x: scroll;
                 margin: 10px 0;
             }
+            /**/
             .homepage .product-category .product-list .product-card{
                 border: 1px solid #b5b5b5;
                 margin: 0 10px;
                 border-radius: 15px;
                 cursor: pointer;
                 padding: 10px;
+                background-color: #fff;
                
             }
             .homepage .product-category .product-list .product-card:hover{
@@ -129,6 +131,7 @@
                     font-weight: bold;
                     font-size: 15px;
                 }
+                /**/
             .homepage .product-category .slide-btn{
                 width: 35px;
                 height: 35px;
