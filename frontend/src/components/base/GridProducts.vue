@@ -1,46 +1,22 @@
 <template>
     <div class="grid-products">
-        <div class="product-card" v-for="(product, index) in products" :key="index">
-            <div class="product-img">
-                <img :src="getImgUrl(product.img)">
-            </div>
-            
-            <div class="product-name">{{product.name}}</div>
-            <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
-        </div>
+        <Product v-for="(product, index) in productsList" :key="index" 
+            :name="product.name"
+            :price="product.price">
+        </Product>
     </div>
 </template>
 <script>
+import Product from './Product.vue';
     export default{
+        
+        components:{
+            Product,
+        },
+        props: ['productsList'],
         data() {
             return {
-                products: [
-                    {
-                        img: 'default-drug',
-                        name: 'Vitamin1',
-                        price: '230.000',
-                    },
-                    {
-                        img: 'default-drug',
-                        name: 'Vitamin2',
-                        price: '230.000',
-                    },
-                    {
-                        img: 'default-drug',
-                        name: 'Vitamin3',
-                        price: '230.000',
-                    },
-                    {
-                        img: 'default-drug',
-                        name: 'Vitamin4',
-                        price: '230.000',
-                    },
-                    {
-                        img: 'default-drug',
-                        name: 'Vitamin5',
-                        price: '230.000',
-                    }
-                ],
+               
             }
         },
         methods: {

@@ -1,7 +1,7 @@
 <template>
     <div class="product-card">
         <div class="product-img">
-            <img src="../../assets/product_img.webp">
+            <img :src="imageUrl">
         </div>
         
         <div class="product-name">{{name}}</div>
@@ -11,7 +11,20 @@
 <script>
 export default{
     name:'MProduct',
-    props: ['imageUrl', 'name', 'price']
+    props:{
+        imageUrl:{
+            type: String,
+            default: require('../../assets/images/default-drug.jpg')
+        },
+        name: {
+            type: String,
+            default: ''
+        },
+        price:{
+            type: Number,
+            default: 0,
+        }
+    }
 }
 </script>
 <style scoped>

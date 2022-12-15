@@ -1,6 +1,7 @@
 
 @import url('../assets/fontawesome-free-6.2.0-web/css/all.css');
 @import url('../styles/common/inputItem.css');
+@import url('../styles/common/button.css');
 body {
     margin: 0;
     font-family: sans-serif; 
