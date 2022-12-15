@@ -118,7 +118,7 @@
 
         
 
-    .product-result{
+    .search-page .product-result{
         display: grid;
         grid-template-columns: repeat(4, minmax(0,5fr)); 
         grid-gap: 10px;
@@ -134,7 +134,7 @@
         align-self: center;
     }
         
-        .product-card{
+        .search-page .product-result .product-card{
             border: 1px solid #b5b5b5;
             margin: 0 10px;
             border-radius: 15px;
@@ -147,10 +147,10 @@
             justify-content: center;
             align-items: center;
         }
-        .product-card:hover{
+        .search-page .product-result .product-card:hover{
             border: 1px solid #0082DE;
         }
-            .product-img{
+            .search-page .product-result .product-card .product-img{
                 /* width: 180px;
                 height: 180px; */
                 /* display: flex; */
@@ -159,14 +159,14 @@
                 position: relative;
                 width: 100%;
             }
-            .product-img img{
+            .search-page .product-result .product-card .product-img img{
             
                 max-width: 100%;
                 max-height: 100%;
                 
                 /* object-fit: fill; */
             }
-            .product-name{
+            .search-page .product-result .product-card .product-name{
                 /* width: 180px; */
                 width: 100%;
                 overflow: hidden;
@@ -176,16 +176,16 @@
                 padding: 10px 0;
                 
             }
-            .product-price{
+            .search-page .product-result .product-card .product-price{
                 padding-bottom: 10px;
             }
-            .product-price span{
+            .search-page .product-result .product-card .product-price span{
                 color:#0266ad;
                 font-weight: bold;
                 font-size: 15px;
                 width: 100%;
             }
-            .purchase-btn{
+            .search-page .product-result .product-card .purchase-btn{
                 /* height: 30px; */
                 text-align:center;
                 vertical-align: middle;
