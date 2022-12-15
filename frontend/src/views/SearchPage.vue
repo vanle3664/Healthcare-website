@@ -1,6 +1,6 @@
 <template>
     <div class="search-page">
-        <div class="search-title">Có {{num_result}} kết quả phù hợp với từ khóa "{{keyword}}"</div>
+        <div class="search-title">Có {{num_result}} kết quả phù hợp với từ khóa "{{this.$route.query.keyword}}"</div>
         <div class="filter">
             <div class="price-order">
                 <div class="price-order-title">Sắp xếp theo giá</div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="product-name">{{product.name}}</div>
                 <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
-                <div class="purchase-btn">Mua hàng</div>
+                <div class="purchase-btn" @click="addToCart(product)">Mua hàng</div>
             </div>
         </div>
     </div>
@@ -42,7 +42,6 @@ export default {
     data(){
         return {
             num_result: 20,
-            keyword: "keyword",
             brands: [
                 "A",
                 "B", 
@@ -116,6 +115,9 @@ export default {
         handleBrandChoosen(brand){
             this.brandFilterValue = brand.brandName;
             this.isClickBrandFilter = !this.isClickBrandFilter
+        },
+        addToCart(product){
+            console.log(product)
         }
     }
 }

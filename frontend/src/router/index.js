@@ -25,6 +25,7 @@ const routes = [
         path: '/search',
         name: 'search',
         component: SearchPage,
+        props: route => ({ keyword: route.query.q })
     },
 ]
 

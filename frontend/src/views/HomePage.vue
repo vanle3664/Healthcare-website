@@ -250,6 +250,7 @@ export default {
         },
         setSearchValue(){
             console.log(`Search key word is: ${this.searchText}`)
+            this.$router.push(`/search?keyword=${this.searchText}`)
         }
     },
     watch: {
