@@ -20,6 +20,7 @@ class DrugController extends Controller
         $arrange = $request->get('arrange');
         $brand = $request->get('brand');
         $query = Drug::query();
+        // $total = Drug::count();
         // $drug = Drug::all();
        
         if ($arrange=='asc'){
@@ -35,10 +36,10 @@ class DrugController extends Controller
         if ($brand){
             $query->where('brand',$brand);
         }
-
+        $total = $query->count();
         $drug = $query->paginate(15);
 
-        return response()->json($drug);
+        return response()->json(['total'=>$total, 'data'=>$drug]);
     }
 
     /**
