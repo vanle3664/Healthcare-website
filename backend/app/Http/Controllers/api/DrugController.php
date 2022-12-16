@@ -30,7 +30,7 @@ class DrugController extends Controller
             $query->orderBy('price', 'desc')->distinct('product_id');
         }
         if ($product_name){
-           $query->where('product_name','LIKE', "%{$product_name}%")->distinct('product_id');
+           $query->where('product_name','LIKE', "%{$product_name}%");
         }
 
         if ($brand){
