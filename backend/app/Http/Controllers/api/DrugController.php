@@ -18,17 +18,22 @@ class DrugController extends Controller
        
         $product_name = $request->get('search');
         $arrange = $request->get('arrange');
+        $brand = $request->get('brand');
         $query = Drug::query();
         // $drug = Drug::all();
        
         if ($arrange=='asc'){
-            $query->orderBy('price', 'asc');
+            $query->orderBy('price', 'asc')->distinct('product_id');
         }
         if ($arrange=='desc'){
-            $query->orderBy('price', 'desc');
+            $query->orderBy('price', 'desc')->distinct('product_id');
         }
         if ($product_name){
-           $query->where('product_name','LIKE', "%{$product_name}%");
+           $query->where('product_name','LIKE', "%{$product_name}%")->distinct('product_id');
+        }
+
+        if ($brand){
+            $query->where('brand',$brand);
         }
 
         $drug = $query->paginate(15);
