@@ -28,7 +28,7 @@ class OrderController extends Controller
         }
         $orders = $query->paginate(15);
         return response()->json($orders);
-        }
+    }
 
 
     /**
@@ -47,7 +47,7 @@ class OrderController extends Controller
             'number_phone' => 'required|string',
             'customer_name' => 'required|string',
             'address' => 'required|string',
-            'items' => 'required|string',
+            'items' => 'required|array',
             'price' => 'required|int',
         ]);
         if ($validator->fails())
@@ -63,9 +63,11 @@ class OrderController extends Controller
         // }else {
 
         //     $user = $this->jwt->User();
-        //     $user = JWTAuth::parseToken()->authenticate();
-        //     $request['customer_id']= $user->_id;
-        //     $request['customer_name']= $user->name;
+            $user = JWTAuth::parseToken()->authenticate();
+            if ($user){
+                $request['customer_id']= $user->_id;
+                $request['customer_name']= $user->name;
+            }
         // }
        
         $request['code']=Str::random(10);

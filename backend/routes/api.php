@@ -37,7 +37,7 @@ Route::middleware('auth.login')->group(function () {
     Route::get('/orders', 'App\Http\Controllers\api\OrderController@index')->name('order.index');
     Route::get('/orders/{id}', 'App\Http\Controllers\api\OrderController@show')->name('order.show');
     Route::post('/orders/{id}', 'App\Http\Controllers\api\OrderController@update')->name('order.update');
-    // Route::resource('/orders', OrderController::class);
+    Route::get('/orders/{id}/delete', 'App\Http\Controllers\api\OrderController@destroy')->name('order.destroy');
 });
 
 Route::post('/orders', 'App\Http\Controllers\api\OrderController@store')->name('order.store');
