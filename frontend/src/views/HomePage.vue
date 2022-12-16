@@ -40,13 +40,6 @@
                 </div>
             </div>
         </div>
-        <GridProducts
-            :productsList="products"
-        />
-        <Button
-            text="ok"
-            color="pink"
-        />
         <div class="chat-bot">
             <div class="chat-icon" @click="handleClickChat()">
                 <i class="fa-solid fa-comments"></i>
@@ -87,15 +80,15 @@
 </template>
 <script>
 import InputItem from '../components/common/InputItem.vue';
-import GridProducts from '@/components/base/GridProducts.vue';
 import Product from '@/components/base/Product.vue';
-import Button from '@/components/common/Button.vue';
+
 export default {
     name: 'HomePage',
     props:{
+        resultSearch: []
     },
     components: {
-        InputItem, GridProducts, Product, Button
+        InputItem, Product
     },
     created(){
         this.msgs=[
@@ -257,6 +250,7 @@ export default {
         },
         setSearchValue(){
             console.log(`Search key word is: ${this.searchText}`)
+            
             this.$router.push(`/search?keyword=${this.searchText}`)
         }
     },

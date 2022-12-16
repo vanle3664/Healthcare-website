@@ -10,7 +10,7 @@
                 <div class="cart_title">Bạn có {{this.cart.length}} sản phẩm trong giỏ </div>
                 <div class="products" v-for="(product, index) in cart" v-bind:key="product.name">
                     <div class="prod_img">
-                        <img :src=product.img>
+                        <img :=product.img>
                     </div>
                     <div class="products_info">
                         <div class="top_info">

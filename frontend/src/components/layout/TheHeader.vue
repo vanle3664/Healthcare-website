@@ -2,7 +2,7 @@
     <div class="header">
         <div class="page-logo" @click="handleClickName"></div>
         <div class="page-name" @click="handleClickName">HEALTH<br>CARE</div>
-        <div class="account" @click="handlePopUp" @mouseover="isOpenAccountOption=true" @mouseleave="isOpenAccountOption=false">
+        <div class="account" @click="handlePopUp" @mouseover="isOpenAccountOption=true">
             <i class="fa-solid fa-user"></i>
             <div class="account-name">{{has_signin?this.account.name:"Login"}}</div>
         </div>
@@ -54,7 +54,7 @@
                 <div v-if="is_error&&!create_account" class="note">Email or password is wrong! Check & submit again</div>
                 <button @click="handleSubmit">Submit</button>
             </div>
-            <div class="login-signup-addition">
+            <div class="login-signup-addition" >
                 <div v-if="!create_account" class="switch" >
                     <div>You haven't got accounts? </div>
                     <div class="call-for-action" @click="switch_signup_login">Sign up for free!</div>
@@ -66,7 +66,7 @@
             </div>
         </div>  
     </div>
-    <div v-if="isOpenAccountOption" class="account-option">
+    <div v-if="isOpenAccountOption" class="account-option" @mouseleave="isOpenAccountOption=false"> 
         <div class="orders">
             <i class="fa-solid fa-scroll"></i>
             Your orders
