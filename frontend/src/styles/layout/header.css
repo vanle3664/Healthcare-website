@@ -23,25 +23,29 @@
         margin-left: 5px;
         cursor: pointer;
     }
-    .header .admin-account{
-        right: 250px;
+    .header .account{
+        right: 200px;
         position: absolute;
         display: flex;
     }
-    .header .admin-account :hover{
+    .header .account :hover{
         cursor: pointer;
     }
-        .header .admin-account i{
+        .header .account i{
             color: white;
             font-size: 25px;
         }
-        .header .admin-account div{
+        .header .account i:hover{
+            
+        }
+        .header .account .account-name{
             position: absolute;
             left: 30px;
             height: 30px;
             line-height: 40px;
             font-weight: bold;
             font-size: 14px;
+            align-self: center;
         }
     .header .cart{
         position: absolute;
@@ -73,7 +77,7 @@
             font-weight: bold;
             font-size: 14px;
         }
-.login-modal{
+.login-signup-modal{
     background: rgba(0, 0, 0, 0.6);
     top: 0;
     height: 100%;
@@ -81,15 +85,16 @@
     position: fixed;
     z-index: 200;
 }
-.login-inner{
+.login-signup-inner{
     width: 500px;
     position: relative;
     top: 5%;
     margin: auto;
     background: white;
     border-radius: 15px;
+    padding-bottom: 20px;
 }
-.login-header{
+.login-signup-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,33 +106,82 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
-    .login-header i:hover{
+    .login-signup-header i:hover{
         color: #034f86;
     }
-.login-content{
-    padding: 50px;
+.login-signup-content{
+    padding: 30px 50px;
     font-size: 15px;
     font-weight: bold;
     justify-content: center;
     align-content: center;
     width: 80%;
 }
-
-    .login-content .password{
-        margin-top: 30px;
+    .login-signup-content .name{
+        margin-bottom: 30px;
     }
 
-.login-footer{
-    padding: 0px 50px 30px 0;
-    text-align: right;
+    .login-signup-content .phone-number{
+        margin-top: 30px;
+    }
+    .login-signup-content .password{
+        margin-top: 30px;
+    }
+        
+
+.login-signup-footer{
+    text-align: center;
 }
-    .login-footer button{
+    .login-signup-footer .note{
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .login-signup-footer button{
+        width: 80%;
         padding: 10px 20px;
         background:#1d48ba;
         color: white;
         border: 0;
-        border-radius: 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+.login-signup-addition .switch{
+    margin-top: 20px;
+    font-weight: 400;
+    text-align: center;
+    font-size: 16px;
+}
+    .login-signup-addition .switch .call-for-action{
+        padding: 10px;
+        color:#06c43f;
+        cursor: pointer;
+        font-weight: bold;
+        
     }
 .hide {
     display: none;
 }
+
+.account-option{
+    top: 60px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 100px;
+    z-index: 100;
+    border: #5c6d9c solid 2px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+    .account-option div{
+        padding: 10px;
+    }
+    .account-option i{
+        padding-right: 2px;
+        color: #5c6d9c;
+    }
+

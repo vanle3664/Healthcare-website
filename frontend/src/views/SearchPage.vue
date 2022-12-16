@@ -7,8 +7,8 @@
                 <i class="fa-solid fa-arrow-up" ref="up" @click="handleFilterPriceASC()"></i>
                 <i class="fa-solid fa-arrow-down" @click="handleFilterPriceDESC()"></i>
             </div>
-            <div class="brand-filter">
-                <input :placeholder=this.brandFilterValue @click="handleClickBrandFilter"/>
+            <div class="brand-filter" >
+                <input placeholder="Lọc theo hãng" :value=this.brandFilterValue @click="isClickBrandFilter=!isClickBrandFilter"/>
                 <div class="all-brand-wrapper" v-if="isClickBrandFilter" >
                     <div class="brands" v-for="(brand,index) in allBrands" :key="index">
                         <div class="brandChoice" @click="handleBrandChoosen(brand)">
@@ -99,7 +99,7 @@ export default {
                 
             ],
             isClickBrandFilter: false,
-            brandFilterValue: "Lọc theo hãng",
+            brandFilterValue: "",
         }
         
     },
@@ -108,13 +108,14 @@ export default {
             return require('../assets/images/' + drug +'.jpg');
         },
         handleClickBrandFilter(){
-            console.log("before: " + this.isClickBrandFilter)
             this.isClickBrandFilter = !this.isClickBrandFilter
-            console.log("after: " + this.isClickBrandFilter)
         },
         handleBrandChoosen(brand){
+            console.log("here")
+            console.log("before: "+ this.brandFilterValue)
             this.brandFilterValue = brand.brandName;
             this.isClickBrandFilter = !this.isClickBrandFilter
+            console.log("after: "+ this.brandFilterValue)
         },
         addToCart(product){
             console.log(product)

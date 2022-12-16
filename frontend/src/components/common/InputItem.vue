@@ -6,6 +6,7 @@
             :class="{'input-search':searchInput}"
             :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
             @keyup.enter="setSearchValue"
+            @keyup.
         >
         <div class="search-icon" v-if="searchInput" @click="handleClickSearch()">
             <i class="fa-solid fa-magnifying-glass"></i>
