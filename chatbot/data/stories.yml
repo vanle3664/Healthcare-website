@@ -1,30 +1,31 @@
 version: "3.1"
 
 stories:
+  - story: hoi chuc nang
+    steps:
+      - intent: chao
+      - action: utter_chao
+      - intent: hoi_chuc_nang
+      - action: utter_hoi_chuc_nang
+      - intent: cam_on
+      - action: utter_cam_on
+      - intent: tam_biet
+      - action: utter_tam_biet
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - story: chao
+    steps:
+      - intent: chao
+      - action: utter_chao
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: hoi trieu chung
+    steps:
+      - intent: chao
+      - action: utter_chao
+      - intent: dua_trieu_chung
+        entities:
+          - symptoms: ngứa
+      - slot_was_set:
+          - symptoms: ngứa
+      - action: action_nhac_trieu_chung
+      - intent: tam_biet
+      - action: utter_tam_biet

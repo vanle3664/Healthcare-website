@@ -1,91 +1,65 @@
 version: "3.1"
 
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+  - intent: chao
+    examples: |
+      - hi
+      - hello
+      - tư vấn
+      - hỗ trợ
+      - giúp mình với
+      - chào
+      - xin chào
+      - có ai không
+      - anh ơi
+      - chị ơi
+      - chào anh
+      - chào chị
+      - bạn ơi
+      - chào bạn
 
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: tam_biet
+    examples: |
+      - tạm biệt
+      - chào tạm biệt
+      - tạm biệt nhé
+      - tạm biệt nha
+      - tạm biệt anh
+      - tạm biệt chị
+      - tạm biệt bạn
+      - xong rồi
+      - ok
+      - oke
+      - ừ
+      - ờ
+      - ừa
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+  - intent: cam_on
+    examples: |
+      - cảm ơn shop nhé
+      - cảm ơn
+      - thank you
+      - cảm ơn shop
+      - rất bổ ích
+      - giỏi quá
+      - tuyệt quá
+      - rất hữu ích
+      - có giá trị tham khảo
+      - cũng đáng tin đấy
+      - thanks
+      - tks
+      - thank you
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: hoi_chuc_nang
+    examples: |
+      - bạn có thể làm gì
+      - chức năng
+      - làm được gì
+      - có những chức năng gì
+      - có mấy chức năng
+      - làm được những gì
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+  - intent: dua_trieu_chung
+    examples: |
+      - tôi bị [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)
+      - triệu chứng của tôi là [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)

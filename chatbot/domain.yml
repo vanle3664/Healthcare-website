@@ -1,33 +1,52 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - chao
+  - tam_biet
+  - cam_on
+  - dua_trieu_chung
+  - hoi_thuoc_dieu_tri
+  - hoi_chuc_nang
+  - ho_tro_them
+
+actions:
+  - action_chan_doan
+  - action_nhac_trieu_chung
+
+entities:
+  - symptoms
+
+slots:
+  symptoms:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: symptoms
+
+# forms:
+#   symptoms_form:
+#     required_slot:
+#       - symptoms
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+  utter_chao:
+    - text: "Xin chào. Bạn muốn được tư vấn đúng không ạ?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_cam_on:
+    - text: "Không có gì ạ, bạn cảm thấy hài lòng là mình vui rồi"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_tam_biet:
+    - text: "Tạm biệt! Chúc bạn một ngày tốt lành!"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_hoi_chuc_nang:
+    - text: "Mình có thể giúp bạn: Chẩn đoán bệnh, đề nghị thuốc điều trị, tìm các nhà thuốc gần bạn nhất"
 
-  utter_goodbye:
-  - text: "Bye"
+  # utter_ho_tro_them:
+  #   - text: "Bạn có muốn hỗ trợ gì thêm không ạ?"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_unclear:
+    - text: "Bạn có thể nói rõ hơn được không?"
 
 session_config:
   session_expiration_time: 60
