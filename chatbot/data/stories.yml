@@ -26,6 +26,6 @@ stories:
           - symptoms: ngứa
       - slot_was_set:
           - symptoms: ngứa
-      - action: action_nhac_trieu_chung
+      - action: action_chan_doan
       - intent: tam_biet
       - action: utter_tam_biet

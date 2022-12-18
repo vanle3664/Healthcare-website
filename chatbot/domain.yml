@@ -11,7 +11,6 @@ intents:
 
 actions:
   - action_chan_doan
-  - action_nhac_trieu_chung
 
 entities:
   - symptoms
@@ -23,11 +22,6 @@ slots:
     mappings:
       - type: from_entity
         entity: symptoms
-
-# forms:
-#   symptoms_form:
-#     required_slot:
-#       - symptoms
 
 responses:
   utter_chao:
