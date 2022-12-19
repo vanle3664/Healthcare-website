@@ -127,6 +127,13 @@
     .login-signup-content .password{
         margin-top: 30px;
     }
+    .login-signup-content .note{
+        position: relative;
+        /* margin-top: 3px; */
+        text-align: right;
+        padding: 0;
+        font-size: 12px;
+    }
         
 
 .login-signup-footer{
@@ -185,3 +192,57 @@
         color: #5c6d9c;
     }
 
+.congrats-modal{
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 200;
+}
+    .congrats-inner{
+        width: 500px;
+        position: relative;
+        top: 5%;
+        margin: auto;
+        background: white;
+        border-radius: 15px;
+        padding-bottom: 20px;
+    }
+        .congrats-header{
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            padding: 15px;
+            color: #d6312d;
+            font-size: large;
+            font-weight: bold;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+            .congrats-header i:hover{
+                color: #034f86;
+            }
+        .congrats-content{
+            padding: 30px 50px;
+            font-size: 15px;
+            font-weight: bold;
+            justify-content: center;
+            align-content: center;
+            width: 80%;
+            text-align: center;
+        }
+        .congrats-footer{
+            text-align: center;
+        }
+            .congrats-footer button{
+                background-color: #d6312d;
+                color: white;
+                width: 80%;
+                padding: 10px 20px;
+                color: white;
+                border: 0;
+                border-radius: 10px;
+                font-weight: bold;
+                text-align: center;
+            }

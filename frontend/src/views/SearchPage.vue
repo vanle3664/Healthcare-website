@@ -1,6 +1,6 @@
 <template>
     <div class="search-page">
-        <div class="search-title">Có {{num_result}} kết quả phù hợp với từ khóa "{{this.$route.query.keyword}}"</div>
+        <div class="search-title">Có {{this.data.total}} kết quả phù hợp với từ khóa "{{this.$route.query.keyword}}"</div>
         <div class="filter">
             <div class="price-order">
                 <div class="price-order-title">Sắp xếp theo giá</div>
@@ -54,13 +54,13 @@ export default {
     },
     data(){
         return {
-            num_result: 20,
+            data:[],
             products: [],
             allBrands: [],
             isClickBrandFilter: false,
-            brandFilterValue: "",
+            brandFilterValue: null,
             current_page: 1,
-            price_arrange: "asc"
+            price_arrange: "desc"
         }
         
     },
@@ -75,24 +75,29 @@ export default {
             let page = this.current_page
             let arrange = this.price_arrange
             let kwd = this.$route.query.keyword
-            let url = "http://127.0.0.1:8000/api/products?" + "page=" + page + "&arrange=" + arrange + "&search=" + kwd
-       
+            let url = "http://127.0.0.1:8000/api/products?" + "page=" + page + "&arange=" + arrange + "&search=" + kwd
+            console.log(url)
+            if (this.brandFilterValue != null)
+                url = url + "&brand=" + this.brandFilterValue
             // const response = this.$http.get(url);
             // this.searchProduct = response.data
-            console.log(this.current_page)
+            // console.log(this.current_page)
             try {
                 let response = await fetch(url).then(res=>res.clone().json());
-                this.products = response.data;
+                this.data = response.data;
+                this.products = response.data.data;
                 // console.log(response.data)
-                // console.log(this.products.length)
-                let brands = []
-                let c = 0
-                for (c >= 0; c < this.products.length; c++){
-                    // console.log(i)
-                    brands.push(this.products[c]["brand"])
-                    // console.log(this.products[i]["brand"])
+                    // console.log(this.products.length)
+                    if (this.allBrands.length == 0){
+                    let brands = []
+                    let c = 0
+                    for (c >= 0; c < this.products.length; c++){
+                        // console.log(i)
+                        brands.push(this.products[c]["brand"])
+                        // console.log(this.products[i]["brand"])
+                    }
+                    this.allBrands = brands.filter((v,i,a)=>a.indexOf(v)==i)
                 }
-                this.allBrands = brands.filter((v,i,a)=>a.indexOf(v)==i)
                 // console.log(this.allBrands[1])
                 // console.log(Array.prototype.map(response.data))
                 // console.log(this.products.brands)
@@ -124,13 +129,17 @@ export default {
             this.brandFilterValue = brand;
             this.isClickBrandFilter = !this.isClickBrandFilter
             console.log("after: "+ this.brandFilterValue)
+            this.getSearchData()
         },
         handleFilterPrice(a){
             this.price_arrange = a
+            console.log("price arrange: " + this.price_arrange)
             this.getSearchData()
         },
         addToCart(product){
             console.log(product)
+            this.$emit('update-cart', product)
+            // this.$emit('update-cart', product)
         }
     }
 }

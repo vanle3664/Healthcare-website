@@ -2,7 +2,7 @@
     <div class="header">
         <div class="page-logo" @click="handleClickName"></div>
         <div class="page-name" @click="handleClickName">HEALTH<br>CARE</div>
-        <div class="account" @click="handlePopUp" @mouseover="isOpenAccountOption=true">
+        <div class="account" @click="handlePopUp(`.login-signup-modal`)" @mouseover="isOpenAccountOption=true">
             <i class="fa-solid fa-user"></i>
             <div class="account-name">{{has_signin?this.account.name:"Login"}}</div>
         </div>
@@ -12,11 +12,11 @@
             <div class="cart-text">Giỏ hàng</div>
         </div>
     </div>
-    <div class="login-signup-modal hide">
+    <div v-if="!has_signin" class="login-signup-modal hide">
         <div class="login-signup-inner">
             <div class="login-signup-header">
                 <div>{{create_account?"Signup":"Login"}}</div>
-                <i class="fas fa-times" @click="handlePopUp"></i>
+                <i class="fas fa-times" @click="handlePopUp(`.login-signup-modal`)"></i>
             </div>
             <div class="login-signup-content">
                 <div v-if="create_account" class="name">
@@ -39,19 +39,23 @@
                         :searchInput="false"
                         v-model="account.phone_number"
                     /> 
+                    <div class="note">One number is used for one account only</div>
                 </div> 
                 <div class="password">
                     <InputItem 
                         label="Password"
-                        :searchInput="false"
+                        :blindInput="true"
+                        isClick="changeShowHide"
                         v-model="account.password"
                     /> 
+                    <div class="note">min 6 characters</div>
                 </div> 
-                <!-- <div class="note">*min 6 characters</div> -->
+                
 
             </div>
             <div class="login-signup-footer">
-                <div v-if="is_error&&!create_account" class="note">Email or password is wrong! Check & submit again</div>
+                <div v-if="signin_error&&!create_account" class="note">Email or password is wrong! Check & submit again</div>
+                <div v-if="signup_error&&create_account" class="note">Account has existed! Please choose another email or sign in below!</div>
                 <button @click="handleSubmit">Submit</button>
             </div>
             <div class="login-signup-addition" >
@@ -66,7 +70,21 @@
             </div>
         </div>  
     </div>
-    <div v-if="isOpenAccountOption" class="account-option" @mouseleave="isOpenAccountOption=false"> 
+    <div class="congrats-modal hide">
+        <div class="congrats-inner">
+            <div class="congrats-header">
+                <i class="fas fa-times" @click="handlePopUp(`.congrats-modal`)"></i>
+            </div>
+            <div class="congrats-content">
+                <img src="https://img.icons8.com/bubbles/200/000000/trophy.png">
+                <div class="sentence">Huray! You've created your account successfully!</div>
+            </div>
+            <div class="congrats-footer">
+                <button @click="handlePopUp(`.congrats-modal`)">Explore now</button>
+            </div> 
+        </div>
+    </div>
+    <div v-if="isOpenAccountOption&&has_signin" class="account-option" @mouseleave="isOpenAccountOption=false"> 
         <div class="orders">
             <i class="fa-solid fa-scroll"></i>
             Your orders
@@ -87,12 +105,16 @@ export default {
                 name: "",
                 email: "van@gmail.com",
                 phone_number: "0123456789",
-                password: "123456",
+                // password: "123456",
+                password: "",
+                token: null,
             },
             create_account: false,
-            is_error: false,
+            signin_error: false,
+            signup_error: false,
             has_signin: false,
             isOpenAccountOption: false,
+            cartfromheader: []
         };   
     },
     components: {
@@ -100,31 +122,39 @@ export default {
     },
     methods: { 
         handleClickCart(){
+            console.log("click cart")
             this.$router.push('/my-cart')
         },
         handleClickName(){
             this.$router.push('/')
-        }, 
-        handleHoverAccount(){
-            
         },
-        handlePopUp(){
-            let modal = document.querySelector(".login-signup-modal")
+        handlePopUp(m){
+            let modal = document.querySelector(m)
             modal.classList.toggle("hide")
         },
         switch_signup_login(){
             this.create_account = !this.create_account
         },
-        handleResponse(response) {
+        handleResponse(response, formname) {
             return response.text().then(text => {
                 const data = text && JSON.parse(text);
+                console.log("resp: " + data)
                 if (!response.ok) {
-                    const error = (data && data.message) || response.statusText;
-                    this.is_error = true
+                    // console.log("data's msg: " + data.message)
+                    const error = (data && data.msg) || response.statusText;
+                    if (formname == "signup")
+                        this.signup_error = true
+                    else
+                        this.signin_error = true
+                    console.log(error)
                     return Promise.reject(error);
                 }
-                this.has_signin = true
-                this.account.name = "Vân"
+                else{
+                    this.has_signin = true
+                    this.account.name = data.user.name
+                    this.account.token = data.token
+                    console.log(data)
+                }
                 return data;
             });
         },
@@ -136,9 +166,8 @@ export default {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
             };
-            fetch(`http://127.0.0.1:8000/api/users/login`, requestOptions)
-                    .then(this.handleResponse)
-            this.handlePopUp()
+            return fetch(`http://127.0.0.1:8000/api/users/login`, requestOptions)
+                    .then(this.handleResponse, "signin")
         },
         async signup(){
             let email = this.account.email
@@ -152,22 +181,42 @@ export default {
                 body: JSON.stringify({ name, email, password, number_phone, is_admin })
             };
             return fetch(`http://127.0.0.1:8000/api/users/register`, requestOptions)
-                    .then(this.handleResponse)
+                    .then(this.handleResponse, "signup")
         },
         handleSubmit(){
+            // const delay = ms => new Promise(res => setTimeout(res, ms))
             if (this.create_account){
-                this.signup()
+                this.signup().then(res => {
+                    if (res.token){
+                        console.log("no error")
+                        this.handlePopUp(".login-signup-modal");
+                        this.handlePopUp(".congrats-modal");
+                    }
+                    else {
+                        console.log("error")
+                        this.signup_error = true;
+                    }
+                });
             }
             else {
-                this.signin()
+                this.signin().then(res => {
+                    console.log(res.token)
+                    if (res.token){
+                        this.handlePopUp(".login-signup-modal")
+                    }
+                    else {
+                        console.log("error")
+                        this.signin_error = true
+                    }
+                });
             }
+            
         }
         
     },
     watch: {
         searchText: function(){
-            console.log(this.searchText)
-            
+            console.log(this.searchText)   
         },
     }
 }

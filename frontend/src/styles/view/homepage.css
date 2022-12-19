@@ -164,17 +164,17 @@
             border-radius: 100%;
             border:#ffff;
             color: #ffff;
-            position: absolute;
+            position: fixed;
             right:    2%;
-            bottom:   10%;
+            bottom:   5%;
             font-size: 25px;
         }
         .homepage .chat-bot .chat-screen{
-            position: absolute;
+            position: fixed;
             right:    2%;
-            bottom: 25%;
+            bottom: 18%;
             width: 20%;
-            height: 70%;
+            height: 60%;
             background-color: rgb(187, 199, 231);
             border-radius: 15px;
             border: 1px solid #84bee7;
