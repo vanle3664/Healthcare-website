@@ -57,6 +57,6 @@ export default {
     }
 }
 </script>
-<style lang="">
-    
+<style scoped>
+    @import url('../../styles/common/inputItem.css');
 </style>
