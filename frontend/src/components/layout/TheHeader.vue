@@ -45,7 +45,6 @@
                     <InputItem 
                         label="Password"
                         :blindInput="true"
-                        isClick="changeShowHide"
                         v-model="account.password"
                     /> 
                     <div class="note">min 6 characters</div>

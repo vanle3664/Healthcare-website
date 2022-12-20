@@ -6,6 +6,7 @@
         
         <div class="product-name">{{name}}</div>
         <div class="product-price"><span>{{price}}VND</span>/Sản phẩm</div>
+        <div class="purchase-btn">Mua hàng</div>
     </div>
 </template>
 <script>

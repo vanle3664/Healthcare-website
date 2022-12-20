@@ -75,6 +75,7 @@
             padding: 20px;
             box-sizing: border-box;
             position: relative;
+            margin-bottom: 20px;
         }
 
             .homepage .product-category a{
@@ -92,6 +93,9 @@
                 flex-direction: row;
                 overflow-x: scroll;
                 margin: 10px 0;
+            }
+            Product{
+                width: 100px;
             }
             /**/
             /* .homepage .product-category .product-list .product-card{

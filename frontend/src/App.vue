@@ -14,6 +14,16 @@ export default {
   name: 'App',
   components: {
     Header, Menu, TheContent
+  },
+  data() {
+    return {
+      cart: []
+    }
+  },
+  methods: {
+    addToCart(product){
+      this.cart.push(product)
+    }
   }
 }
 </script>

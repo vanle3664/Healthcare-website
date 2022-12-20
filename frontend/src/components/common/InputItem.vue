@@ -4,7 +4,7 @@
         <br>
         <input
             :class="{'input-search':searchInput}"
-            :type="modelType"
+            :type=modelType
             :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
             @keyup.enter="setSearchValue"
             
@@ -25,6 +25,7 @@ export default {
         return {
             isClickSearch: false,
             showPass: false,
+            modelType: "text"
         }
     },
     props: {
@@ -47,16 +48,19 @@ export default {
         modelValue: {
             type: String
         },
-        modelType: {
-            type: String,
-            default: "text"
-        }
+        // modelType: {
+        //     type: String,
+        //     default: "text"
+        // }
     },
     // data(){
     //     return{
     //         input: ''
     //     }
     // },
+    created(){
+        this.setModelType()
+    },
     methods: {
         handleClickSearch(){
             this.isClickSearch = true
@@ -64,9 +68,18 @@ export default {
         }, 
         handleClickEye(){
             this.showPass = !this.showPass
+            this.modelType = (this.showPass)?"text":"password"
+            console.log("change model type")
             // this.modelType = (this.modelType == "text") ? "password" : "text"
             // if (this.modelType == "text")
             //     this.$emit('update:modelType', "password")
+        },
+        setModelType(){
+            if (this.blindInput)
+                this.modelType = "password"
+            else 
+                this.modelType = "text"
+            console.log(this.modelType)
         },
         setSearchValue(){
             this.$emit('inputOnEnter')

@@ -16,11 +16,11 @@
                 <div class="hot-item" v-for="(item, index) in hotItems" :key="index" v-on:click="searchRecOnClick($event)">{{item}}</div>
             </div>
         </div>
-        <div class="product-category">
-            <label>Thực phẩm chức năng</label>
+        <div class="product-category" v-for="(mainCat, index1) in mainCategories" :key="index1">
+            <label>{{mainCat.cat_name}}</label>
             <router-link to='/products'>Xem thêm</router-link>
             <div class="product-list scrollable-invisible" ref="productList">
-                <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick">
+                <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick()">
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
                 <!-- <div class="product-card" v-for="(product, index) in products" :key="index">
@@ -31,8 +31,9 @@
                     <div class="product-name">{{product.name}}</div>
                     <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
                 </div> -->
-                <Product v-for="(product, index) in products" :key="index" 
-                    :name="product.name"
+                <Product v-for="(product, index2) in products[index1]" :key="index2"
+                    :name="product.product_name"
+                    :imageUrl="product.product_image"
                     :price="product.price">
                 </Product>
                 <div class="next-btn slide-btn" v-on:click="nextBtnOnClick">
@@ -88,9 +89,24 @@ export default {
         resultSearch: []
     },
     components: {
-        InputItem, Product
+        InputItem, Product,
     },
     created(){
+        this.getMainCategory().then(()=> this.getProductByCatId()),
+        // this.mainCategories=[
+        //     {
+        //         cat_id: "Q2F0ZWdvcnk6NDAw",
+        //         cat_name: "Thực phẩm chức năng",
+        //         cat_icon: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/P21967_1.png",
+        //         cat_slug: "thuc-pham-chuc-nang"
+        //     }, 
+        //     {
+        //         cat_id: "Q2F0ZWdvcnk6Mzc5",
+        //         cat_name: "Chăm sóc cá nhân",
+        //         cat_icon: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/03_Ch%C4%83m_s%C3%B3c_c%C3%A1_nh%C3%A2n_03-Personal_Care_Cham_soc_ca_nhan.png",
+        //         cat_slug: "cham-soc-ca-nhan"
+        //     }
+        // ],
         this.msgs=[
                 {
                     senderId: '2',
@@ -145,6 +161,7 @@ export default {
                 
                 
             ]
+        
     },
     data(){
         return{
@@ -152,40 +169,42 @@ export default {
             hotItems: [
                 'Thuốc', 'Vitamin', 'Thực phẩm chức năng'
             ],
-            products: [
-                {
-                    img: 'default-drug',
-                    name: 'Vitamin1',
-                    price: '230.000',
-                },
-                {
-                    img: 'default-drug',
-                    name: 'Vitamin2',
-                    price: '230.000',
-                },
-                {
-                    img: 'default-drug',
-                    name: 'Vitamin3',
-                    price: '230.000',
-                },
-                {
-                    img: 'default-drug',
-                    name: 'Vitamin4',
-                    price: '230.000',
-                },
-                {
-                    img: 'default-drug',
-                    name: 'Vitamin5',
-                    price: '230.000',
-                }
-            ],
+            products: [[], [], [], [], [], [], []],
             isClickBot: false,
             myId: '1',
             msgs: [],
             previewImage: null,
+            mainCategories: []
         }
     },
     methods: {
+        async getMainCategory(){
+            let response = await fetch("http://127.0.0.1:8000/api/categories")
+                .then(res=>res.clone().json())
+            // console.log("get main cat response :" + response)
+            for (let i = 0; i < response.length; i++){
+                this.mainCategories.push(response[i].cat_parent)
+            }    
+            // console.log(response.length)
+            // console.log(response[0])
+            console.log(this.mainCategories[0])
+        },
+        async getProductByCatId(){
+            console.log("here get product by id ")
+            console.log(this.mainCategories[1])
+            for (let i = 0; i < this.mainCategories.length; i++){
+                let cat = this.mainCategories[i]
+                console.log("category: " + cat)
+                console.log("cat id: " + cat.cat_id)
+                let url = "http://127.0.0.1:8000/api/products/categories/" + cat.cat_id
+                await fetch(url)
+                    .then(res=>res.clone().json())
+                    .then(response => this.products[i] = response.data.data.slice(0, 5))
+                
+            }
+            console.log(this.products)   
+        }
+        ,
         getImgUrl(drug) {
             return require('../assets/images/' + drug +'.jpg');
         },
@@ -193,7 +212,7 @@ export default {
             var productCard = document.querySelector('.product-card')
             var productWidth = productCard.getBoundingClientRect().width
             this.$refs.productList.scrollLeft += productWidth
-            // console.log(this.$refs.productList.scrollLeft)
+            console.log(this.$refs.productList.scrollLeft)
             // console.log(this.$refs.productList.parentElement.getBoundingClientRect().width - 40)
             // console.log(this.$refs.productList.getBoundingClientRect().width)
         },
@@ -249,8 +268,7 @@ export default {
             this.$refs.imageInput.click()
         },
         setSearchValue(){
-            console.log(`Search key word is: ${this.searchText}`)
-            
+            // console.log(`Search key word is: ${this.searchText}`)
             this.$router.push(`/search?keyword=${this.searchText}`)
         }
     },

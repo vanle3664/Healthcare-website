@@ -60,7 +60,8 @@ export default {
             isClickBrandFilter: false,
             brandFilterValue: null,
             current_page: 1,
-            price_arrange: "desc"
+            last_page: null,
+            price_arrange: "asc"
         }
         
     },
@@ -85,10 +86,12 @@ export default {
             try {
                 let response = await fetch(url).then(res=>res.clone().json());
                 this.data = response.data;
+                this.last_page = response.data.last_page
+                // console.log("last page: " + this.last_page)
                 this.products = response.data.data;
-                // console.log(response.data)
+                console.log(this.data)
                     // console.log(this.products.length)
-                    if (this.allBrands.length == 0){
+                if (this.allBrands.length == 0){
                     let brands = []
                     let c = 0
                     for (c >= 0; c < this.products.length; c++){
@@ -112,7 +115,8 @@ export default {
                     this.current_page = this.current_page - 1
             }
             else{
-                this.current_page = this.current_page + 1 
+                if (this.current_page < this.last_page)
+                    this.current_page = this.current_page + 1 
             }
             if (this.curent_page != 0)
                 this.getSearchData()
@@ -124,11 +128,11 @@ export default {
             this.isClickBrandFilter = !this.isClickBrandFilter
         },
         handleBrandChoosen(brand){
-            console.log("here")
-            console.log("before: "+ this.brandFilterValue)
+            // console.log("here")
+            // console.log("before: "+ this.brandFilterValue)
             this.brandFilterValue = brand;
             this.isClickBrandFilter = !this.isClickBrandFilter
-            console.log("after: "+ this.brandFilterValue)
+            // console.log("after: "+ this.brandFilterValue)
             this.getSearchData()
         },
         handleFilterPrice(a){
@@ -138,7 +142,7 @@ export default {
         },
         addToCart(product){
             console.log(product)
-            this.$emit('update-cart', product)
+            this.$emit('addToCart', product)
             // this.$emit('update-cart', product)
         }
     }
