@@ -54,7 +54,9 @@
             </div>
             <div class="login-signup-footer">
                 <div v-if="signin_error&&!create_account" class="note">Email or password is wrong! Check & submit again</div>
-                <div v-if="signup_error&&create_account" class="note">Account has existed! Please choose another email or sign in below!</div>
+                <div v-if="create_account">
+                    <ul v-for="(error, index) in errors" :key="index" class="note">({{index + 1}}) {{error}}</ul>
+                </div>
                 <button @click="handleSubmit">Submit</button>
             </div>
             <div class="login-signup-addition" >
@@ -88,7 +90,7 @@
             <i class="fa-solid fa-scroll"></i>
             Your orders
         </div>
-        <div class="log-out">
+        <div class="log-out" @click="logout()">
             <i class="fa-solid fa-right-from-bracket"></i>
             Log out
         </div>
@@ -113,7 +115,8 @@ export default {
             signup_error: false,
             has_signin: false,
             isOpenAccountOption: false,
-            cartfromheader: []
+            cartfromheader: [], 
+            errors: []
         };   
     },
     components: {
@@ -139,12 +142,14 @@ export default {
                 const data = text && JSON.parse(text);
                 console.log("resp: " + data)
                 if (!response.ok) {
-                    // console.log("data's msg: " + data.message)
+                    console.log("data's msg: ", data.errors)
+                    this.errors = data.errors
                     const error = (data && data.msg) || response.statusText;
                     if (formname == "signup")
                         this.signup_error = true
                     else
                         this.signin_error = true
+                    console.log("error nè")
                     console.log(error)
                     return Promise.reject(error);
                 }
@@ -187,9 +192,12 @@ export default {
             if (this.create_account){
                 this.signup().then(res => {
                     if (res.token){
-                        console.log("no error")
-                        this.handlePopUp(".login-signup-modal");
-                        this.handlePopUp(".congrats-modal");
+                        console.log("res token" , res.token)
+                        // console.log("no error").then(() => {
+                        //     this.handlePopUp(".login-signup-modal")
+                        //     this.handlePopUp(".congrats-modal")
+                        // })
+                        this.handlePopUp(".congrats-modal")
                     }
                     else {
                         console.log("error")
@@ -210,12 +218,30 @@ export default {
                 });
             }
             
+        },
+        async logout(){
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer " + this.account.token);
+
+            const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+            };
+
+            fetch("http://127.0.0.1:8000/api/users/logout", requestOptions)
+            .then(response => response.text())
+            .then(() => {
+                // console.log('success', result)
+                this.has_signin = false
+            })
+            .catch(error => console.log('error', error));      
         }
         
     },
     watch: {
         searchText: function(){
-            console.log(this.searchText)   
+            // console.log(this.searchText)   
         },
     }
 }

@@ -29,7 +29,7 @@ export default {
             }    
             // console.log(response.length)
             // console.log(response[0])
-            console.log(this.categories[3])
+            // console.log(this.categories[3])
         }
     }
 }

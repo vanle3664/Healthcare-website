@@ -84,6 +84,7 @@
     width: 100%;
     position: fixed;
     z-index: 200;
+    overflow-y: scroll;
 }
 .login-signup-inner{
     width: 500px;
@@ -110,7 +111,7 @@
         color: #034f86;
     }
 .login-signup-content{
-    padding: 30px 50px;
+    padding: 30px 0px 10px 50px;
     font-size: 15px;
     font-weight: bold;
     justify-content: center;
@@ -118,14 +119,14 @@
     width: 80%;
 }
     .login-signup-content .name{
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .login-signup-content .phone-number{
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .login-signup-content .password{
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .login-signup-content .note{
         position: relative;
@@ -133,15 +134,16 @@
         text-align: right;
         padding: 0;
         font-size: 12px;
+        color: #5c6d9c;
     }
-        
-
 .login-signup-footer{
     text-align: center;
+    margin-top: 10px;
 }
     .login-signup-footer .note{
         text-align: left;
         margin-bottom: 10px;
+        font-size: 10px;
     }
 
     .login-signup-footer button{

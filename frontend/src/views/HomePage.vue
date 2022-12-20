@@ -18,7 +18,7 @@
         </div>
         <div class="product-category" v-for="(mainCat, index1) in mainCategories" :key="index1">
             <label>{{mainCat.cat_name}}</label>
-            <router-link to='/products'>Xem thêm</router-link>
+            <router-link :to=mainCat.cat_id>Xem thêm</router-link>
             <div class="product-list scrollable-invisible" ref="productList">
                 <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick()">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -77,12 +77,6 @@
             </div>
             
         </div>
-        <Button
-            text="OK"
-            btnClass="orange-btn"
-            
-        />
-       
         
     </div>
 </template>
@@ -99,7 +93,7 @@ export default {
         InputItem, Product,
     },
     created(){
-        this.getMainCategory().then(()=> this.getProductByCatId()),
+        this.getMainCategory().then(()=> this.getProductByCatId())
         // this.mainCategories=[
         //     {
         //         cat_id: "Q2F0ZWdvcnk6NDAw",
@@ -181,7 +175,8 @@ export default {
             myId: '1',
             msgs: [],
             previewImage: null,
-            mainCategories: []
+            mainCategories: [],
+            routeToCat: ""
         }
     },
     methods: {
@@ -277,6 +272,9 @@ export default {
         setSearchValue(){
             // console.log(`Search key word is: ${this.searchText}`)
             this.$router.push(`/search?keyword=${this.searchText}`)
+        }, 
+        setRouteToCart(cat){
+            return "/category/" + cat
         }
     },
     // watch: {

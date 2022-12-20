@@ -64,7 +64,7 @@ export default {
     methods: {
         handleClickSearch(){
             this.isClickSearch = true
-            this.$router.push("/search")
+            this.$router.push(`/search?keyword=${this.modelValue}`)
         }, 
         handleClickEye(){
             this.showPass = !this.showPass
