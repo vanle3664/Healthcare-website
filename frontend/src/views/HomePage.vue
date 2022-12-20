@@ -76,19 +76,26 @@
             </div>
             
         </div>
+        <Button
+            text="OK"
+            btnClass="orange-btn"
+            
+        />
+       
+        
     </div>
 </template>
 <script>
 import InputItem from '../components/common/InputItem.vue';
 import Product from '@/components/base/Product.vue';
-
+import Button from '@/components/common/Button.vue';
 export default {
     name: 'HomePage',
     props:{
         resultSearch: []
     },
     components: {
-        InputItem, Product
+        InputItem, Product, Button
     },
     created(){
         this.msgs=[
@@ -219,10 +226,10 @@ export default {
         exitBtnOnClick(){
             this.$emit('hideChatWindow')
         },
-        autoScroll(){
-            var element = this.$refs.msgs
-            element.scrollTop = element.scrollHeight;
-        },
+        // autoScroll(){
+        //     var element = this.$refs.msgs
+        //     element.scrollTop = element.scrollHeight;
+        // },
         handleSearchByImage(){
             let modal = document.querySelector(".model-ocr-popup")
             modal.classList.toggle("hide")
@@ -254,11 +261,11 @@ export default {
             this.$router.push(`/search?keyword=${this.searchText}`)
         }
     },
-    watch: {
-        msgs(){
-            this.autoScroll()
-        }
-    }
+    // watch: {
+    //     msgs(){
+    //         this.autoScroll()
+    //     }
+    // }
 }
 </script>
 <style scoped>

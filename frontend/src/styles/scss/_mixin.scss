@@ -1,0 +1,7 @@
+@mixin set-background-color($color){
+    background-color: $color;
+    color: set-text-color($color);
+    &:hover{
+        background-color: darken($color: $color, $amount: 20);
+    }
+}

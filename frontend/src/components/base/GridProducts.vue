@@ -29,3 +29,13 @@ import Product from './Product.vue';
 <style scoped>
     @import url('../../styles/base/grid-products.css');
 </style>
+
+
+<div>{{formTitle}}</div>
+
+computed: {
+    changeFormTitle(){
+        if (!this.is_signup) return 'Login'
+        else return 'Sign up'
+    }
+}
