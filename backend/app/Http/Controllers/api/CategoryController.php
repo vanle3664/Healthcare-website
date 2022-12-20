@@ -15,8 +15,19 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $cat = Category::paginate(15);
-        return response()->json($cat);
+        $array_cat= [];
+        $query = Category::query();
+        $query->where('num_products','>',0);
+        $cat_parent = $query->get();
+        foreach($cat_parent as $cat){
+            $cat_childen= Category::where('parent',$cat->cat_id)->get();
+            $array_cat[]= array(
+                'cat_parent'=> $cat,
+                'cat_childen'=>$cat_childen
+            );
+        }
+        return response()->json($array_cat);
+
     }
 
     /**
@@ -70,12 +81,12 @@ class CategoryController extends Controller
         $query = Drug::query();
         $query->where('productType_id', $cat_id);
       
-        $dummyQueue =$this->queueCat($cat_id);
-        $dummyQueue->rewind();
-        while($dummyQueue->valid()){
-            $query->orWhere('productType_id', $dummyQueue->current());
-            $dummyQueue->next();
-        }
+        // $dummyQueue =$this->queueCat($cat_id);
+        // $dummyQueue->rewind();
+        // while($dummyQueue->valid()){
+        //     $query->orWhere('productType_id', $dummyQueue->current());
+        //     $dummyQueue->next();
+        // }
         $total = $query->count();
         $drug = $query->paginate(15);
         return response()->json(['total'=>$total, 'data'=>$drug]);

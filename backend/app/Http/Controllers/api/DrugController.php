@@ -23,11 +23,11 @@ class DrugController extends Controller
         // $total = Drug::count();
         // $drug = Drug::all();
        
-        if ($arrange=='asc'){
-            $query->orderBy('price', 'asc')->distinct('product_id');
+        if ($arrange && $arrange=='asc'){
+            $query->orderBy('price', 'asc');
         }
-        if ($arrange=='desc'){
-            $query->orderBy('price', 'desc')->distinct('product_id');
+        if ($arrange && $arrange=='desc'){
+            $query->orderBy('price', 'desc');
         }
         if ($product_name){
            $query->where('product_name','LIKE', "%{$product_name}%");
