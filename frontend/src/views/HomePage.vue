@@ -77,6 +77,13 @@
             </div>
             
         </div>
+        <Button
+            text="OK"
+            btnClass="orange-btn"
+            
+        />
+       
+        
     </div>
 </template>
 <script>
@@ -238,10 +245,10 @@ export default {
         exitBtnOnClick(){
             this.$emit('hideChatWindow')
         },
-        autoScroll(){
-            var element = this.$refs.msgs
-            element.scrollTop = element.scrollHeight;
-        },
+        // autoScroll(){
+        //     var element = this.$refs.msgs
+        //     element.scrollTop = element.scrollHeight;
+        // },
         handleSearchByImage(){
             let modal = document.querySelector(".model-ocr-popup")
             modal.classList.toggle("hide")
@@ -272,11 +279,11 @@ export default {
             this.$router.push(`/search?keyword=${this.searchText}`)
         }
     },
-    watch: {
-        msgs(){
-            this.autoScroll()
-        }
-    }
+    // watch: {
+    //     msgs(){
+    //         this.autoScroll()
+    //     }
+    // }
 }
 </script>
 <style scoped>

@@ -3,7 +3,7 @@ import HomePage from '../views/HomePage.vue'
 import CartPage from '../views/CartPage.vue'
 import SuccessOrderPage from '../views/SuccessOrder.vue'
 import SearchPage from '../views/SearchPage.vue'
-
+import ProductDetail from '../views/ProductDetail.vue'
 
 const routes = [
     {
@@ -20,6 +20,11 @@ const routes = [
         path: '/success-order',
         name: 'success-order',
         component: SuccessOrderPage,
+    },
+    {
+        path: '/product',
+        name: 'product-detail',
+        component: ProductDetail,
     },
     {
         path: '/search',
