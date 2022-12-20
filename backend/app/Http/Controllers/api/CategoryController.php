@@ -22,7 +22,12 @@ class CategoryController extends Controller
         foreach($cat_parent as $cat){
             $cat_childen= Category::where('parent',$cat->cat_id)->get();
             $array_cat[]= array(
-                'cat_parent'=> $cat,
+                'cat_id'=> $cat->id,
+                'cat_name'=>$cat->cat_name,
+                'cat_icon'=>$cat->cat_icon,
+                'cat_slug'=>$cat->cat_slug,
+                'num_products'=>$cat->num_products,
+                
                 'cat_childen'=>$cat_childen
             );
         }
