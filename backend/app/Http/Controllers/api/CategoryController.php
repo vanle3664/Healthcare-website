@@ -81,12 +81,12 @@ class CategoryController extends Controller
         $query = Drug::query();
         $query->where('productType_id', $cat_id);
       
-        // $dummyQueue =$this->queueCat($cat_id);
-        // $dummyQueue->rewind();
-        // while($dummyQueue->valid()){
-        //     $query->orWhere('productType_id', $dummyQueue->current());
-        //     $dummyQueue->next();
-        // }
+        $dummyQueue =$this->queueCat($cat_id);
+        $dummyQueue->rewind();
+        while($dummyQueue->valid()){
+            $query->orWhere('productType_id', $dummyQueue->current());
+            $dummyQueue->next();
+        }
         $total = $query->count();
         $drug = $query->paginate(15);
         return response()->json(['total'=>$total, 'data'=>$drug]);
