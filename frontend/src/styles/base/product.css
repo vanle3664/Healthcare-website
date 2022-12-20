@@ -5,7 +5,7 @@
     cursor: pointer;
     padding: 20px;
     background-color: #fff;
-    min-width: 30%;
+    min-width: 20%;
 }
 .product-card:hover{
     border: 1px solid #0082DE;
