@@ -1,0 +1,368 @@
+[2022-12-15 11:19:45] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:19:45] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:22:14] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:22:14] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:23:21] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:23:21] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:24:52] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:24:52] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:26:45] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:26:45] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:31:36] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:31:36] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:33:33] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:33:33] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:33:46] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:33:46] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:36:35] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:36:35] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:39:19] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:39:19] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:40:38] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:40:38] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:42:21] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:42:21] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:44:11] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:44:11] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:45:23] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:45:23] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:46:51] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:46:51] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2022-12-15 11:54:01] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:207)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(132): Illuminate\\Log\\LogManager->resolve()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(119): Illuminate\\Log\\LogManager->get()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(642): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(274): Illuminate\\Log\\LogManager->error()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(454): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(157): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#7 {main}
+"} 
+[2022-12-15 11:54:01] laravel.ERROR: syntax error, unexpected token ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \")\" at C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\symfony\\finder\\Finder.php:636)
+[stacktrace]
+#0 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile()
+#1 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(86): Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(63): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles()
+#3 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#4 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(242): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#5 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(383): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(153): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\DELL\\Desktop\\Healthcare-website\\backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 

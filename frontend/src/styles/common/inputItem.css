@@ -37,3 +37,17 @@
     align-items: center;
     justify-content: center;
 }
+.input-item .blind-icon{
+    width: 30px;
+    height: 30px;
+    /* background-color: #0082DE; */
+    position: absolute;
+    right: 9px;
+    bottom: 5px;
+    /* border-radius: 100px; */
+    color: #536470;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

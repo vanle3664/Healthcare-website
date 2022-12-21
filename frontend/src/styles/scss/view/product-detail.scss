@@ -1,0 +1,27 @@
+.product-detail{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .images-previewinfo{
+        width: 70%;
+        height: 400px;
+        margin-top: 50px;
+        display: flex;
+        // grid-template-columns: repeat(2, 1fr);
+        // grid-gap: 1em;
+
+        .slideshow-container{
+            width: 50%;
+            height: 100%;
+        }
+        .preview-info{
+            height: 100%;
+            width: 50%;
+            background-color: white;
+            margin-left: 30px;
+            border-radius: 15px;
+        }
+    }
+
+}

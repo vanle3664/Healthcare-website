@@ -1,24 +1,24 @@
 
 <template lang="">
-    <div class="cart_page" v-if="productList.length > 0">
+    <div class="cart_page" v-if="cart.length > 0">
         <div class="breaker_horizontal" @click="handleBack"> 
             <i class="fa-solid fa-circle-arrow-left"></i>
             Quay lại mua hàng
         </div>
         <div class="all_content">
             <div class="left_content">
-                <div class="cart_title">Bạn có {{this.productList.length}} sản phẩm trong giỏ </div>
-                <div class="products" v-for="(product, index) in productList" v-bind:key="product.name">
+                <div class="cart_title">Bạn có {{this.cart.length}} sản phẩm trong giỏ </div>
+                <div class="products" v-for="(product, index) in cart" v-bind:key="product.name">
                     <div class="prod_img">
-                        <img src="../assets/product_img.webp">
+                        <img :src=product.img>
                     </div>
                     <div class="products_info">
                         <div class="top_info">
                             <div class="product_name">{{product.name}}</div>
                             <div class="product_num">
-                                <span class="minus" @click="handleMinus({index})"> - </span>
+                                <span class="minus" @click="() => updateQuantity(index, product.num - 1)"> - </span>
                                 <span class="num">{{product.num}}</span>
-                                <span class="add" @click="handleAdd({index})"> + </span>
+                                <span class="add" @click="() => updateQuantity(index, product.num + 1)"> + </span>
                             </div>
                             <div class="delete" @click="handleDelete({index})">
                                 <i class="fa-solid fa-trash"></i>
@@ -97,9 +97,20 @@ export default {
     },
     data() {
         return {
-            productList : [
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 10, price: 10000}, 
-                {name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", num: 1, price: 30000},
+            cart : [
+                {
+                    id: 1, 
+                    img: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P22919_1-thumbnail-255x255-70.jpg",
+                    name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", 
+                    num: 10, 
+                    price: 10000
+                }, 
+                {
+                    id: 2, 
+                    img: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P23693_1-thumbnail-255x255-70.jpg",
+                    name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", 
+                    num: 3, 
+                    price: 30000},
             ],
         
         }
@@ -107,28 +118,35 @@ export default {
     computed : {
     },
     methods: {
+        updateCart(e){
+            this.cart.push(e)
+        }
+        ,
         handleAdd(index){
-            this.productList[index["index"]]["num"]++;
+            this.cart[index["index"]]["num"]++;
         },
         handleMinus(index){
-            let num_product = this.productList[index["index"]]["num"];
+            let num_product = this.cart[index["index"]]["num"];
             if (num_product > 1) 
-                this.productList[index["index"]]["num"]--;
+                this.cart[index["index"]]["num"]--;
             
+        },
+        updateQuantity(index, quantity){
+            this.cart[index]["num"] = quantity
         },
         handleBack(){
             this.$router.push('/')
         },
         handleDelete(index){
-            console.log(this.productList.length)
-            if (this.productList.length == 1 ){
-                this.productList = []
+            console.log(this.cart.length)
+            if (this.cart.length == 1 ){
+                this.cart = []
             }
             else 
-                this.productList = this.productList.splice(index["index"] - 1, 1)
+                this.cart = this.cart.splice(index["index"] - 1, 1)
         },
         cartTotal(){
-            let a = this.productList.reduce( (acc, item) => {
+            let a = this.cart.reduce( (acc, item) => {
                 return acc + item.num*item.price
             }, 0)
             a = a.toLocaleString({style : 'currency', currency : 'VND'});
@@ -139,7 +157,7 @@ export default {
             return b.toLocaleString({style : 'currency', currency : 'VND'})
         },
         orderTotal(){
-            let a = this.productList.reduce( (acc, item) => {
+            let a = this.cart.reduce( (acc, item) => {
                 return acc + item.num*item.price
             }, 0)
             let b = 10000
