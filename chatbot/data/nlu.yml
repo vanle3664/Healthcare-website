@@ -63,3 +63,4 @@ nlu:
     examples: |
       - tôi bị [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)
       - triệu chứng của tôi là [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)
+      - tôi [ngứa](symptoms), [phát ban](symptoms), [da nổi sần](symptoms) lắm
