@@ -17,8 +17,8 @@
             </div>
         </div>
         <div class="product-category" v-for="(mainCat, index1) in mainCategories" :key="index1">
-            <label>{{mainCat.cat_name}}</label>
-            <router-link :to=mainCat.cat_id>Xem thêm</router-link>
+            <label>{{mainCat.cat_name}}{{setRouteToCategory(mainCat.cat_name, mainCat.cat_id)}}</label>
+            <router-link :to=routeToCat[index1]>Xem thêm</router-link>
             <div class="product-list scrollable-invisible" ref="productList">
                 <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick()">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -176,28 +176,29 @@ export default {
             msgs: [],
             previewImage: null,
             mainCategories: [],
-            routeToCat: ""
+            routeToCat: []
         }
     },
     methods: {
         async getMainCategory(){
             let response = await fetch("http://127.0.0.1:8000/api/categories")
                 .then(res=>res.clone().json())
-            // console.log("get main cat response :" + response)
-            for (let i = 0; i < response.length; i++){
-                this.mainCategories.push(response[i].cat_parent)
-            }    
+            console.log("get main cat response :" + response)
+            for (const element of response){
+                this.mainCategories.push(element)
+            }     
             // console.log(response.length)
             // console.log(response[0])
             console.log(this.mainCategories[0])
         },
         async getProductByCatId(){
             console.log("here get product by id ")
-            console.log(this.mainCategories[1])
+            console.log(this.mainCategories[0])
             for (let i = 0; i < this.mainCategories.length; i++){
                 let cat = this.mainCategories[i]
-                console.log("category: " + cat)
-                console.log("cat id: " + cat.cat_id)
+                // console.log("category: " + cat)
+                // console.log("cat id: " + cat.cat_id)
+                // console.log(cat.cat_children)
                 let url = "http://127.0.0.1:8000/api/products/categories/" + cat.cat_id
                 await fetch(url)
                     .then(res=>res.clone().json())
@@ -273,8 +274,8 @@ export default {
             // console.log(`Search key word is: ${this.searchText}`)
             this.$router.push(`/search?keyword=${this.searchText}`)
         }, 
-        setRouteToCart(cat){
-            return "/category/" + cat
+        setRouteToCategory(name, id){
+            this.routeToCat.push("/category/" + name + "/" + id)
         }
     },
     // watch: {

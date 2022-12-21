@@ -38,6 +38,11 @@ const routes = [
         name: 'category',
         component: CategoryPage,
         // props: route => ({cat: route.params.catName})
+    },
+    {
+        path: '/category/:catName/:catId',
+        name: 'category',
+        component: CategoryPage
     }
 ]
 

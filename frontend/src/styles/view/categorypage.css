@@ -5,7 +5,7 @@
 }
     .category-page .category-title{
         font-size: 20px;
-        font-weight: 400;
+        font-weight: bold;
         padding: 20px;
     }
     .category-page .filter{

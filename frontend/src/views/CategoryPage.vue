@@ -1,6 +1,6 @@
 <template>
     <div class="category-page">
-        <div class="category-title">{{this.$route.params.catId}} </div>
+        <div class="category-title">{{this.$route.params.catName}} </div>
         <div class="filter">
             <div class="price-order">
                 <div class="price-order-title">Sắp xếp theo giá</div>
