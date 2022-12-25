@@ -5,7 +5,7 @@
         </div>
         
         <div class="product-name">{{product.product_name}}</div>
-        <div class="product-price"><span>{{product.product_price}}VND</span>/Sản phẩm</div>
+        <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
         <div class="purchase-btn" @click="purchaseBtnOnClick">Mua hàng</div>
     </div>
 </template>
