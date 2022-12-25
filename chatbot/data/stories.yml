@@ -1,0 +1,31 @@
+version: "3.1"
+
+stories:
+  - story: hoi chuc nang
+    steps:
+      - intent: chao
+      - action: utter_chao
+      - intent: hoi_chuc_nang
+      - action: utter_hoi_chuc_nang
+      - intent: cam_on
+      - action: utter_cam_on
+      - intent: tam_biet
+      - action: utter_tam_biet
+
+  - story: chao
+    steps:
+      - intent: chao
+      - action: utter_chao
+
+  - story: hoi trieu chung
+    steps:
+      - intent: chao
+      - action: utter_chao
+      - intent: dua_trieu_chung
+        entities:
+          - symptoms: ngứa
+      - slot_was_set:
+          - symptoms: ngứa
+      - action: action_chan_doan
+      - intent: tam_biet
+      - action: utter_tam_biet

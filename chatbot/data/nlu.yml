@@ -1,0 +1,66 @@
+version: "3.1"
+
+nlu:
+  - intent: chao
+    examples: |
+      - hi
+      - hello
+      - tư vấn
+      - hỗ trợ
+      - giúp mình với
+      - chào
+      - xin chào
+      - có ai không
+      - anh ơi
+      - chị ơi
+      - chào anh
+      - chào chị
+      - bạn ơi
+      - chào bạn
+
+  - intent: tam_biet
+    examples: |
+      - tạm biệt
+      - chào tạm biệt
+      - tạm biệt nhé
+      - tạm biệt nha
+      - tạm biệt anh
+      - tạm biệt chị
+      - tạm biệt bạn
+      - xong rồi
+      - ok
+      - oke
+      - ừ
+      - ờ
+      - ừa
+
+  - intent: cam_on
+    examples: |
+      - cảm ơn shop nhé
+      - cảm ơn
+      - thank you
+      - cảm ơn shop
+      - rất bổ ích
+      - giỏi quá
+      - tuyệt quá
+      - rất hữu ích
+      - có giá trị tham khảo
+      - cũng đáng tin đấy
+      - thanks
+      - tks
+      - thank you
+
+  - intent: hoi_chuc_nang
+    examples: |
+      - bạn có thể làm gì
+      - chức năng
+      - làm được gì
+      - có những chức năng gì
+      - có mấy chức năng
+      - làm được những gì
+
+  - intent: dua_trieu_chung
+    examples: |
+      - tôi bị [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)
+      - triệu chứng của tôi là [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)
+      - tôi [ngứa](symptoms), [phát ban](symptoms), [da nổi sần](symptoms) lắm

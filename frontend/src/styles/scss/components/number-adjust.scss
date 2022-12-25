@@ -1,0 +1,30 @@
+.number-adjust{
+    width: 120px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    font-size: $big-font;
+    border: 1px solid #bbb;
+    div{
+        width: 40px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        border-radius: $border-radius;
+        cursor: pointer;
+    }
+    .value{
+        background-color: $primary-color;
+        height: 30px;
+        border-radius: $border-radius;
+        color: #fff;
+        font-size: $small-font;
+    }
+    .adjust:hover{
+        background-color: rgb(248, 241, 241);
+    }
+}

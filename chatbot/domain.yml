@@ -1,0 +1,47 @@
+version: "3.1"
+
+intents:
+  - chao
+  - tam_biet
+  - cam_on
+  - dua_trieu_chung
+  - hoi_thuoc_dieu_tri
+  - hoi_chuc_nang
+  - ho_tro_them
+
+actions:
+  - action_chan_doan
+
+entities:
+  - symptoms
+
+slots:
+  symptoms:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: symptoms
+
+responses:
+  utter_chao:
+    - text: "Xin chào. Bạn muốn được tư vấn đúng không ạ?"
+
+  utter_cam_on:
+    - text: "Không có gì ạ, bạn cảm thấy hài lòng là mình vui rồi"
+
+  utter_tam_biet:
+    - text: "Tạm biệt! Chúc bạn một ngày tốt lành!"
+
+  utter_hoi_chuc_nang:
+    - text: "Mình có thể giúp bạn: Chẩn đoán bệnh, đề nghị thuốc điều trị, tìm các nhà thuốc gần bạn nhất"
+
+  # utter_ho_tro_them:
+  #   - text: "Bạn có muốn hỗ trợ gì thêm không ạ?"
+
+  utter_unclear:
+    - text: "Bạn có thể nói rõ hơn được không?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

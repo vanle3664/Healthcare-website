@@ -1,0 +1,17 @@
+version: "3.1"
+rules:
+  # - rule: Symptoms Form
+  #   steps:
+  #     - intent: hoi_trieu_chung
+  #     - action: symptoms_form
+  #     - active_loop: symptoms_form
+
+  # - rule: Predict
+  #   condition:
+  #     - active_loop: symptoms_form
+  #   steps:
+  #     - action: symptoms_form
+  #     - active_loop: null
+  #     - slot_was_set:
+  #         - requested_slot: null
+  #     - action: action_chan_doan

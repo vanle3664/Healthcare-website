@@ -1,31 +1,41 @@
 <template>
     <div class="product-card">
         <div class="product-img">
-            <img :src="imageUrl">
+            <img :src="product.product_image">
         </div>
         
-        <div class="product-name">{{name}}</div>
-        <div class="product-price"><span>{{price}}VND</span>/Sản phẩm</div>
-        <div class="purchase-btn">Mua hàng</div>
+        <div class="product-name">{{product.product_name}}</div>
+        <div class="product-price"><span>{{product.product_price}}VND</span>/Sản phẩm</div>
+        <div class="purchase-btn" @click="purchaseBtnOnClick">Mua hàng</div>
     </div>
 </template>
 <script>
 export default{
     name:'MProduct',
-    props:{
-        imageUrl:{
-            type: String,
-            default: require('../../assets/images/default-drug.jpg')
+    props: ['product'],
+    // props:{
+    //     // imageUrl:{
+    //     //     type: String,
+    //     //     default: require('../../assets/images/default-drug.jpg')
+    //     // },
+    //     // name: {
+    //     //     type: String,
+    //     //     default: ''
+    //     // },
+    //     // price:{
+    //     //     type: Number,
+    //     //     default: 0,
+    //     // },
+    //     // productId:{
+    //     //     default: '',
+    //     // }
+    // },
+    methods: {
+            purchaseBtnOnClick(){
+                console.log(this.product.product_id)
+                this.$router.push({ name: 'products', params: { productId: this.product.product_id}})
+            }
         },
-        name: {
-            type: String,
-            default: ''
-        },
-        price:{
-            type: String,
-            default: '0',
-        }
-    }
 }
 </script>
 <style scoped>

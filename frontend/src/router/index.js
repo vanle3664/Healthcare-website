@@ -23,8 +23,8 @@ const routes = [
         component: SuccessOrderPage,
     },
     {
-        path: '/product',
-        name: 'product-detail',
+        path: '/products/:productId',
+        name: 'products',
         component: ProductDetail,
     },
     {
