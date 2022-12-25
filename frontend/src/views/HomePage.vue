@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="send-msg">
-                    <input>
+                    <input v-model="mess" @keyup.enter="getMess">
                     <i class="fa-solid fa-paper-plane"></i>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                     <div class="image-preview-wrapper" :style="{ 'background-image': `url(${previewImage})` }" @click="selectImage()"></div>
                 </div>
                 <div class="popup-footer">
-                    <button>Tìm kiếm</button>
+                    <button @click="searchByImage">Tìm kiếm</button>
                 </div>
             </div>
             
@@ -83,6 +83,7 @@ export default {
         InputItem, Product,
     },
     created(){
+        this.getMess()
         this.getMainCategory().then(()=> this.getProductByCatId())
         // this.mainCategories=[
         //     {
@@ -98,60 +99,6 @@ export default {
         //         cat_slug: "cham-soc-ca-nhan"
         //     }
         // ],
-        this.msgs=[
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys djfk akfj alfjk alfj alfkjd djf '
-                },
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys djfk akfj alfjk alfj alfkjd djf '
-                },
-                
-                
-            ]
         
     },
     data(){
@@ -162,11 +109,17 @@ export default {
             ],
             products: [],
             isClickBot: false,
-            myId: '1',
-            msgs: [],
+            myId: '2',
+            msgs: [
+                {
+                    senderId: '2',
+                    content: 'Welcome to HealthCare doctorbot! Please enter your symtoms below'
+                },
+            ],
             previewImage: null,
             mainCategories: [],
-            routeToCat: []
+            routeToCat: [],
+            mess: ""
         }
     },
     methods: {
@@ -234,6 +187,34 @@ export default {
             console.log(!this.isClickBot)
             this.isClickBot = !this.isClickBot
         },
+        async getMess(){
+            this.mess = event.target.value
+            // console.log(this.mess)
+            this.msgs.push({senderid: `1`, content: `${this.mess}`})
+
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            let raw = JSON.stringify({
+            "senderid": "m1",
+            "message": this.mess
+            });
+
+            console.log(raw)
+
+            let requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch("http://localhost:5005/webhooks/rest/webhook", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+        },
         getClass(msg){
             return {
                 'float-right' : msg.senderId == this.myId
@@ -277,6 +258,26 @@ export default {
         }, 
         setRouteToCategory(name, id){
             this.routeToCat.push("/category/" + name + "/" + id)
+        },
+        searchByImage(){
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            // myHeaders.append('Access-Control-Allow-Origin', 'http://192.168.1.105:8080');
+            // myHeaders.append('Access-Control-Allow-Methods', 'GET, POST, PUT')
+            // myHeaders.append('Access-Control-Allow-Headers', 'Content-Type')
+
+            // myHeaders.append('mode', 'no-cors');
+
+            let requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+            };
+
+            fetch("http://localhost:8000/test", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
         }
     },
     computed: {
@@ -287,8 +288,7 @@ export default {
                     result.push(this.mainCategories[index])
                 }
             });
-            return result
-            
+            return result  
         }
     }
 }
