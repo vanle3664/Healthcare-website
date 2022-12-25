@@ -1,27 +1,72 @@
 .product-detail{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 0 50px;
+    box-sizing: border-box;
 
-    .images-previewinfo{
-        width: 70%;
-        height: 400px;
+    .product-images-info{
+        width: 100%;
         margin-top: 50px;
-        display: flex;
-        // grid-template-columns: repeat(2, 1fr);
-        // grid-gap: 1em;
+        display: grid;
+        // justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        grid-gap: 1em;
 
         .slideshow-container{
-            width: 50%;
-            height: 100%;
+            // width: 500px;
+            height: 400px;
         }
-        .preview-info{
-            height: 100%;
-            width: 50%;
+        .product-info{
+            height: 400px;
+            // width: calc(100% - 500px) ;
             background-color: white;
-            margin-left: 30px;
-            border-radius: 15px;
+            border-radius: $border-radius;
+            .product-desc-1{
+                height: 350px;
+                padding: 20px;
+                box-sizing: border-box;
+                border-radius: $border-radius;
+                overflow-y: scroll;
+            }
+            .product-options{
+                height: 50px;
+                border-radius: $border-radius;
+                display: flex;
+                align-items: flex-end;
+
+                    .number-adjust{
+                        margin-right: 10px;
+                    }
+                    button{
+                        margin-right: 10px;
+                    }
+            }
         }
     }
+    .title{
+        font-size: $big-font;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    p{
+        font-size: $medium-font;
+    }
+    .product-desc-2{
+        width: 100%;
+        background-color: #fff;
+        max-height: 300px;
+        margin-top: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-y: scroll;
+    }
 
+    .products-grid-container{
+        width: 100%;
+        background-color: #fff;
+        margin-top: 20px;
+        padding: 20px;
+    }
 }

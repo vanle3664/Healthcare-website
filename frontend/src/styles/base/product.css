@@ -5,7 +5,7 @@
     cursor: pointer;
     padding: 20px;
     background-color: #fff;
-    min-width: 20%;
+    min-width: 222px;
 }
 .product-card:hover{
     border: 1px solid #0082DE;
@@ -23,7 +23,7 @@
             object-fit: contain;
         }
     .product-card .product-name{
-        width: 100%;
+        width: 200px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
