@@ -31,3 +31,4 @@ export default {
 <style scoped>
   @import url('./styles/main.css');
 </style>
+

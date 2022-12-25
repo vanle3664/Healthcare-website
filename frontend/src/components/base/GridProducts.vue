@@ -1,8 +1,7 @@
 <template>
     <div class="grid-products">
         <Product v-for="(product, index) in productsList" :key="index" 
-            :name="product.name"
-            :price="product.price">
+            :product="product">
         </Product>
     </div>
 </template>
@@ -29,13 +28,3 @@ import Product from './Product.vue';
 <style scoped>
     @import url('../../styles/base/grid-products.css');
 </style>
-
-
-<div>{{formTitle}}</div>
-
-computed: {
-    changeFormTitle(){
-        if (!this.is_signup) return 'Login'
-        else return 'Sign up'
-    }
-}

@@ -16,25 +16,15 @@
                 <div class="hot-item" v-for="(item, index) in hotItems" :key="index" v-on:click="searchRecOnClick($event)">{{item}}</div>
             </div>
         </div>
-        <div class="product-category" v-for="(mainCat, index1) in mainCategories" :key="index1">
+        <div class="product-category" v-for="(mainCat, index1) in completeCategories" :key="index1">
             <label>{{mainCat.cat_name}}</label>
             <router-link :to=mainCat.cat_id>Xem thêm</router-link>
             <div class="product-list scrollable-invisible" ref="productList">
                 <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick()">
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
-                <!-- <div class="product-card" v-for="(product, index) in products" :key="index">
-                    <div class="product-img">
-                        <img :src="getImgUrl(product.img)">
-                    </div>
-                    
-                    <div class="product-name">{{product.name}}</div>
-                    <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
-                </div> -->
                 <Product v-for="(product, index2) in products[index1]" :key="index2"
-                    :name="product.product_name"
-                    :imageUrl="product.product_image"
-                    :price="product.price">
+                    :product="product">
                 </Product>
                 <div class="next-btn slide-btn" v-on:click="nextBtnOnClick">
                     <i class="fa-solid fa-chevron-right"></i>
@@ -170,7 +160,7 @@ export default {
             hotItems: [
                 'Thuốc', 'Vitamin', 'Thực phẩm chức năng'
             ],
-            products: [[], [], [], [], [], [], []],
+            products: [],
             isClickBot: false,
             myId: '1',
             msgs: [],
@@ -181,27 +171,37 @@ export default {
     },
     methods: {
         async getMainCategory(){
-            let response = await fetch("http://127.0.0.1:8000/api/categories")
-                .then(res=>res.clone().json())
-            // console.log("get main cat response :" + response)
-            for (let i = 0; i < response.length; i++){
-                this.mainCategories.push(response[i].cat_parent)
-            }    
-            // console.log(response.length)
-            // console.log(response[0])
-            console.log(this.mainCategories[0])
+            try {
+                const response = await fetch("http://127.0.0.1:8000/api/categories")
+                if(!response.ok){
+                    throw Error('Can not load categories api')
+                }
+                const data = await response.json()
+                this.mainCategories = data
+            } catch (error) {
+                console.log(error)
+            }
+           
+            // console.log(response.json())
+            //     .then(res=>res.clone().json())
+            // // console.log("get main cat response :" + response)
+            // for (let i = 0; i < response.length; i++){
+            //     this.mainCategories.push(response[i].cat_parent)
+            // }    
+            // // console.log(response.length)
+            // // console.log(response[0])
+            // console.log(this.mainCategories[0])
         },
         async getProductByCatId(){
             console.log("here get product by id ")
-            console.log(this.mainCategories[1])
             for (let i = 0; i < this.mainCategories.length; i++){
-                let cat = this.mainCategories[i]
-                console.log("category: " + cat)
-                console.log("cat id: " + cat.cat_id)
+                let cat = this.mainCategories[i].cat_childen[0]
+                // console.log(tmp)
                 let url = "http://127.0.0.1:8000/api/products/categories/" + cat.cat_id
                 await fetch(url)
-                    .then(res=>res.clone().json())
-                    .then(response => this.products[i] = response.data.data.slice(0, 5))
+                    .then(res=>res.json())
+                    .then(res=>res.data.data)
+                    .then(res=>this.products.push(res))
                 
             }
             console.log(this.products)   
@@ -222,6 +222,7 @@ export default {
             var productCard = document.querySelector('.product-card')
             var productWidth = productCard.getBoundingClientRect().width;
             this.$refs.productList.scrollLeft -= productWidth
+            console.log(this.$refs.productList)
             
         },
         searchRecOnClick(event){
@@ -275,13 +276,23 @@ export default {
         }, 
         setRouteToCart(cat){
             return "/category/" + cat
+        },
+        btnTest(i){
+            console.log(this.products[i])
         }
     },
-    // watch: {
-    //     msgs(){
-    //         this.autoScroll()
-    //     }
-    // }
+    computed: {
+        completeCategories(){
+            var result = []
+            this.products.forEach((productsOfCat, index) => {
+                if(productsOfCat.length > 0){
+                    result.push(this.mainCategories[index])
+                }
+            });
+            return result
+            
+        }
+    }
 }
 </script>
 <style scoped>

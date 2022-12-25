@@ -2,6 +2,6 @@
     background-color: $color;
     color: set-text-color($color);
     &:hover{
-        background-color: darken($color: $color, $amount: 20);
+        background-color: darken($color: $color, $amount: 10);
     }
 }
