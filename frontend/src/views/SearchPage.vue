@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="search-content">
-            <div class="product-result">
+            <!-- <div class="product-result">
                 <div class="product-card" v-for="(product, index) in products" :key="index">
                     <div class="product-img">
                         <img :src=product.product_image>
@@ -29,7 +29,8 @@
                     <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
                     <div class="purchase-btn" @click="addToCart(product)">Mua hàng</div>
                 </div>
-            </div>
+            </div> -->
+            <GridProducts :products-list="products"></GridProducts>
             <div class="btn">
                 <div class="back-next-btn" @click="handleChangePage(`back`)">
                     Back 
@@ -47,10 +48,12 @@
 
 <script>
 // import InputItem from '../components/common/InputItem.vue';
+import GridProducts from '../components/base/GridProducts.vue';
 export default {
     name: 'SearchPage',
     components: {
         //InputItem,
+        GridProducts,
     },
     data(){
         return {

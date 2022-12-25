@@ -8,7 +8,7 @@
 <script>
 import Product from './Product.vue';
     export default{
-        
+        name: "GridProducts",
         components:{
             Product,
         },

@@ -1,5 +1,5 @@
 <template>
-    <div class="product-card">
+    <div class="product-card" @click="handleClickOnProduct">
         <div class="product-img">
             <img :src="product.product_image">
         </div>
@@ -31,6 +31,11 @@ export default{
     //     // }
     // },
     methods: {
+            handleClickOnProduct(){
+                console.log(this.product.product_id)
+                this.$router.push({ name: 'products', params: { productId: this.product.product_id}})
+            }
+            ,
             purchaseBtnOnClick(){
                 console.log(this.product.product_id)
                 this.$router.push({ name: 'products', params: { productId: this.product.product_id}})
