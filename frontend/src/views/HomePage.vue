@@ -16,7 +16,7 @@
                 <div class="hot-item" v-for="(item, index) in hotItems" :key="index" v-on:click="searchRecOnClick($event)">{{item}}</div>
             </div>
         </div>
-        <div class="product-category" v-for="(mainCat, index1) in mainCategories" :key="index1">
+        <div class="product-category" v-for="(mainCat, index1) in completeCategories" :key="index1">
             <label>{{mainCat.cat_name}}{{setRouteToCategory(mainCat.cat_name, mainCat.cat_id)}}</label>
             <router-link :to=routeToCat[index1]>Xem thêm</router-link>
             <div class="product-list scrollable-invisible" ref="productList">
@@ -31,6 +31,7 @@
                 </div>
             </div>
         </div>
+        <LoadingBar v-if="showLoading"/>
         <div class="chat-bot">
             <div class="chat-icon" @click="handleClickChat()">
                 <i class="fa-solid fa-comments"></i>
@@ -73,6 +74,7 @@
 <script>
 import InputItem from '../components/common/InputItem.vue';
 import Product from '@/components/base/Product.vue';
+import LoadingBar from '@/components/common/LoadingBar.vue';
 
 export default {
     name: 'HomePage',
@@ -80,7 +82,7 @@ export default {
         resultSearch: []
     },
     components: {
-        InputItem, Product,
+        InputItem, Product, LoadingBar
     },
     created(){
         this.getMess()
@@ -119,7 +121,7 @@ export default {
             previewImage: null,
             mainCategories: [],
             routeToCat: [],
-            mess: ""
+            showLoading: true,
         }
     },
     methods: {
@@ -158,7 +160,7 @@ export default {
                     .then(res=>this.products.push(res))
                 
             }
-            console.log(this.products)   
+            this.showLoading = false   
         }
         ,
         getImgUrl(drug) {
