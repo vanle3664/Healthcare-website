@@ -15,15 +15,12 @@ export default{
     data(){
         return {
             slideIndex:0,
-            images: [
-                "https://i.pinimg.com/originals/00/c3/7e/00c37e2f8aa1921e27db9217eb6ad7a1.png" ,
-                "https://lh3.googleusercontent.com/qaYPh3R81NxoIaOIsRaHah9MSvuxomiEDg5ytloUeFKc-s1ZwHBlr0SYXF62uCo3ReNBY_dkg-jeLOcLIK4GoIhsPdxZ8vlg=w960-rj-nu-e365",
-                "https://i.pinimg.com/originals/00/c3/7e/00c37e2f8aa1921e27db9217eb6ad7a1.png" ,
-                "https://lh3.googleusercontent.com/qaYPh3R81NxoIaOIsRaHah9MSvuxomiEDg5ytloUeFKc-s1ZwHBlr0SYXF62uCo3ReNBY_dkg-jeLOcLIK4GoIhsPdxZ8vlg=w960-rj-nu-e365"
-            ],
             
         }
     },
+    props: [
+        'images'
+    ],
     methods: {
         plusSlides(i){
             this.slideIndex += i

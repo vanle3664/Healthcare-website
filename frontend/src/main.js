@@ -3,5 +3,8 @@ import App from './App.vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import { createPinia } from 'pinia'
 
-createApp(App).use(router, VueAxios, axios).mount('#app')
+const pinia = createPinia()
+
+createApp(App).use(router, VueAxios, axios, pinia).mount('#app')
