@@ -87,6 +87,7 @@ export default {
     created(){
         this.getMess()
         this.getMainCategory().then(()=> this.getProductByCatId())
+        // this.getProductByCatId()
         // this.mainCategories=[
         //     {
         //         cat_id: "Q2F0ZWdvcnk6NDAw",
@@ -114,8 +115,12 @@ export default {
             myId: '2',
             msgs: [
                 {
-                    senderId: '2',
+                    senderId: '1',
                     content: 'Welcome to HealthCare doctorbot! Please enter your symtoms below'
+                },
+                {
+                    senderId: '2',
+                    content: 'My symtoms are'
                 },
             ],
             previewImage: null,
@@ -136,16 +141,6 @@ export default {
             } catch (error) {
                 console.log(error)
             }
-           
-            // console.log(response.json())
-            //     .then(res=>res.clone().json())
-            // // console.log("get main cat response :" + response)
-            // for (let i = 0; i < response.length; i++){
-            //     this.mainCategories.push(response[i].cat_parent)
-            // }    
-            // // console.log(response.length)
-            // // console.log(response[0])
-            // console.log(this.mainCategories[0])
         },
         async getProductByCatId(){
             console.log("here get product by id ")
@@ -161,8 +156,7 @@ export default {
                 
             }
             this.showLoading = false   
-        }
-        ,
+        },
         getImgUrl(drug) {
             return require('../assets/images/' + drug +'.jpg');
         },
@@ -171,8 +165,7 @@ export default {
             var productWidth = productCard.getBoundingClientRect().width
             this.$refs.productList.scrollLeft += productWidth
             console.log(this.$refs.productList.scrollLeft)
-            // console.log(this.$refs.productList.parentElement.getBoundingClientRect().width - 40)
-            // console.log(this.$refs.productList.getBoundingClientRect().width)
+
         },
         prevBtnOnClick(){
             var productCard = document.querySelector('.product-card')
@@ -192,7 +185,7 @@ export default {
         async getMess(){
             this.mess = event.target.value
             // console.log(this.mess)
-            this.msgs.push({senderid: `1`, content: `${this.mess}`})
+            this.msgs.push({senderid: "2", content: `${this.mess}`})
 
             let myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");

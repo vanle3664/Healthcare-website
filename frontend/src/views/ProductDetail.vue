@@ -50,7 +50,17 @@
         </div>
         <div class="products-grid-container">
             <div class="title">Sản phẩm tương tự</div>
-            <GridProducts/>
+            <div class="product-list scrollable-invisible" ref="productList">
+                <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <Product v-for="(rproduct, index2) in relatedProducts" :key="index2"
+                    :product="rproduct">
+                </Product>
+                <div class="next-btn slide-btn" v-on:click="nextBtnOnClick">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -58,7 +68,8 @@
 import SlideShow from '@/components/common/SlideShow.vue';
 import NumberAdjust from '@/components/common/NumberAdjust.vue';
 import Button from '@/components/common/Button.vue';
-import GridProducts from '@/components/base/GridProducts.vue';
+// import GridProducts from '@/components/base/GridProducts.vue';
+import Product from '@/components/base/Product.vue';
 import { mapStores } from 'pinia'
 import { useCartStore } from '../store/cart';
 // import { mapState } from 'pinia';
@@ -66,7 +77,7 @@ import { useCartStore } from '../store/cart';
 // import axios from 'axios';
 export default{
     components: {
-        SlideShow, NumberAdjust, Button, GridProducts
+        SlideShow, NumberAdjust, Button, Product
     } , 
     data(){
         return{
@@ -74,11 +85,11 @@ export default{
             productId: null,
             quantity: 1,
             images: [],
+            relatedProducts: [],
         }
     },
     created() {
         this.getProductDetail()
-
     }, 
     computed: {
         ...mapStores(useCartStore)
@@ -100,6 +111,22 @@ export default{
                 this.getProductDescription()
             })
             .catch(error => console.log('error', error));
+            this.getRelatedProduct();
+        },
+        async getRelatedProduct(){
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+
+            await fetch(`http://127.0.0.1:8000/api/products/categories/${this.product.productType_id}`, requestOptions)
+            .then(response => response.json())
+            .then(res=>{
+                this.relatedProducts=res.data.data
+                console.log("related products")
+                console.log(this.relatedProducts)
+            })
+            .catch(error => console.log('error', error));
         },
         getProductDescription(){
             this.$nextTick(()=>{
@@ -116,7 +143,19 @@ export default{
         buyNow(){
             this.addProductToCart()
             this.$router.push({name: 'cart-page'})
-        }
+        },
+        nextBtnOnClick(){
+            var productCard = document.querySelector('.product-card')
+            var productWidth = productCard.getBoundingClientRect().width
+            this.$refs.productList.scrollLeft += productWidth
+
+        },
+        prevBtnOnClick(){
+            var productCard = document.querySelector('.product-card')
+            var productWidth = productCard.getBoundingClientRect().width;
+            this.$refs.productList.scrollLeft -= productWidth
+            
+        },
     }                                                                                                 
 }
 </script>

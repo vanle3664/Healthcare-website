@@ -231,5 +231,16 @@
         .search-page .search-content .back-next-btn:hover{
             color: #0082DE;
         }
+    .search-page .search-content .empty-search{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+        .search-page .search-content .empty-search p{
+            font-size: larger;
+            text-align: center;
+        }
+
 
             

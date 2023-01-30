@@ -20,27 +20,27 @@
             </div>
         </div>
         <div class="search-content">
-            <!-- <div class="product-result">
-                <div class="product-card" v-for="(product, index) in products" :key="index">
-                    <div class="product-img">
-                        <img :src=product.product_image>
+            <div v-if="this.data.total">
+                <GridProducts :products-list="products"></GridProducts>
+                <div class="btn">
+                    <div class="back-next-btn" @click="handleChangePage(`back`)">
+                        Back 
+                        <i class="fa-solid fa-arrow-left" ></i>         
                     </div>
-                    <div class="product-name">{{product.product_name}}</div>
-                    <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
-                    <div class="purchase-btn" @click="addToCart(product)">Mua hàng</div>
+                    <div>page {{current_page}}</div>
+                    <div class="back-next-btn" @click="handleChangePage(`next`)">
+                        Next 
+                        <i class="fa-solid fa-arrow-right" ></i>          
+                    </div>
                 </div>
-            </div> -->
-            <GridProducts :products-list="products"></GridProducts>
-            <div class="btn">
-                <div class="back-next-btn" @click="handleChangePage(`back`)">
-                    Back 
-                    <i class="fa-solid fa-arrow-left" ></i>         
-                </div>
-                <div>page {{current_page}}</div>
-                <div class="back-next-btn" @click="handleChangePage(`next`)">
-                    Next 
-                    <i class="fa-solid fa-arrow-right" ></i>          
-                </div>
+            </div>
+            <div v-else class="empty-search">
+                <img :src="require('../../src/assets/images/no result found.png')" alt="empty-result">
+                
+                <p>
+                    Tiếc quá! HealthCare không tìm thấy nội dung nào phù hợp với từ khóa                
+                    <b>“{{this.$route.query.keyword}}”</b>
+                </p>
             </div>
         </div>
     </div>
