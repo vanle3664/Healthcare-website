@@ -112,6 +112,7 @@
                             /* align-self: center; */
                             align-content: center;
                             width: 5%;
+                            margin-left: 10px;
                         }
                             .delete i:hover{
                                 color:#f70000;

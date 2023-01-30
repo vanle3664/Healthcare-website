@@ -1,30 +1,33 @@
 
 <template lang="">
-    <div class="cart_page" v-if="cart.length > 0">
+    <div class="cart_page" v-if="cartStore.cart.length > 0">
         <div class="breaker_horizontal" @click="handleBack"> 
             <i class="fa-solid fa-circle-arrow-left"></i>
             Quay lại mua hàng
         </div>
         <div class="all_content">
             <div class="left_content">
-                <div class="cart_title">Bạn có {{this.cart.length}} sản phẩm trong giỏ </div>
-                <div class="products" v-for="(product, index) in cart" v-bind:key="product.name">
+                <div class="cart_title">Bạn có {{cartStore.cart.length}} sản phẩm trong giỏ </div>
+                <div class="products" v-for="(item, index) in cartStore.cart" v-bind:key="index">
                     <div class="prod_img">
-                        <img :src=product.img>
+                        <img :src=item.product.product_image>
                     </div>
                     <div class="products_info">
                         <div class="top_info">
-                            <div class="product_name">{{product.name}}</div>
-                            <div class="product_num">
+                            <div class="product_name">{{item.product.product_name}}</div>
+                            <!-- <div class="product_num">
                                 <span class="minus" @click="() => updateQuantity(index, product.num - 1)"> - </span>
                                 <span class="num">{{product.num}}</span>
                                 <span class="add" @click="() => updateQuantity(index, product.num + 1)"> + </span>
-                            </div>
-                            <div class="delete" @click="handleDelete({index})">
+                            </div> -->
+                            <NumberAdjust
+                                :productItem="item"
+                            />
+                            <div class="delete" @click="cartStore.removeFromCart(index)">
                                 <i class="fa-solid fa-trash"></i>
                             </div>
                         </div>
-                        <div class="product_totalPrice">Đơn giá: {{product.num}} x {{product.price}} = {{product.num*product.price}}</div>
+                        <div class="product_totalPrice">Đơn giá: {{item.product.price.toLocaleString({style : 'currency', currency : 'VND'})}} </div>
                     </div>
                 </div>
                 <div class="delivery_info">
@@ -62,7 +65,7 @@
                 <div class="order_info">
                     <div class="price">
                         <div class="price_title">Tổng tiền:</div>
-                        <div class="price_value">{{cartTotal()}}</div>
+                        <div class="price_value">{{cartStore.totalBill.toLocaleString({style : 'currency', currency : 'VND'})}}</div>
                     </div>
                     <div class="price">
                         <div class="price_title">Phí giao hàng:</div>
@@ -89,81 +92,58 @@
     </div>
 </template>
 <script>
+import { useCartStore } from '@/store/cart';
+import { mapStores } from 'pinia';
+import NumberAdjust from '@/components/common/NumberAdjust.vue';
 export default {
     name: 'TheCart',
     components: {
+        NumberAdjust
     },
     props: {
     },
     data() {
         return {
-            cart : [
-                {
-                    id: 1, 
-                    img: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P22919_1-thumbnail-255x255-70.jpg",
-                    name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", 
-                    num: 10, 
-                    price: 10000
-                }, 
-                {
-                    id: 2, 
-                    img: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P23693_1-thumbnail-255x255-70.jpg",
-                    name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", 
-                    num: 3, 
-                    price: 30000},
-            ],
+            // cart : [
+            //     {
+            //         id: 1, 
+            //         img: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P22919_1-thumbnail-255x255-70.jpg",
+            //         name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", 
+            //         num: 10, 
+            //         price: 10000
+            //     }, 
+            //     {
+            //         id: 2, 
+            //         img: "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P23693_1-thumbnail-255x255-70.jpg",
+            //         name: "Sữa Bột Abbott Glucerna Dinh Dưỡng Đặc Biệt Cho Người Đái Tháo Đường", 
+            //         num: 3, 
+            //         price: 30000},
+            // ],
         
         }
     },
+    created(){
+        console.log(this.cartStore.cart)
+    },
     computed : {
+        ...mapStores(useCartStore)
     },
     methods: {
-        updateCart(e){
-            this.cart.push(e)
-        }
-        ,
-        handleAdd(index){
-            this.cart[index["index"]]["num"]++;
-        },
-        handleMinus(index){
-            let num_product = this.cart[index["index"]]["num"];
-            if (num_product > 1) 
-                this.cart[index["index"]]["num"]--;
-            
-        },
-        updateQuantity(index, quantity){
-            this.cart[index]["num"] = quantity
-        },
+  
         handleBack(){
             this.$router.push('/')
-        },
-        handleDelete(index){
-            console.log(this.cart.length)
-            if (this.cart.length == 1 ){
-                this.cart = []
-            }
-            else 
-                this.cart = this.cart.splice(index["index"] - 1, 1)
-        },
-        cartTotal(){
-            let a = this.cart.reduce( (acc, item) => {
-                return acc + item.num*item.price
-            }, 0)
-            a = a.toLocaleString({style : 'currency', currency : 'VND'});
-            return a
         },
         shippingFee(){
             let b = 10000
             return b.toLocaleString({style : 'currency', currency : 'VND'})
         },
         orderTotal(){
-            let a = this.cart.reduce( (acc, item) => {
-                return acc + item.num*item.price
-            }, 0)
+            let a = this.cartStore.totalBill
             let b = 10000
             return (a + b).toLocaleString({style : 'currency', currency : 'VND'})
         },
         handleOrder(){
+            console.log(this.cartStore.cart)
             this.$router.push("/success-order")
         }
     }

@@ -11,7 +11,7 @@
                     <div class="title">
                         {{ product.product_name }}
                     </div>
-                    <div class="price"><span>{{ product.price }}</span>VND/sản phẩm</div>
+                    <div class="price"><span>{{ product.price.toLocaleString({style : 'currency', currency : 'VND'}) }}</span>VND/sản phẩm</div>
                     <div>
                         <i class="fa-regular fa-copyright"></i>
                         {{ product.brand }}
@@ -26,10 +26,14 @@
                     </div>
                 </div>
                 <div class="product-options">
-                    <NumberAdjust/>
+                    <NumberAdjust 
+                        productItem=""
+                        ref="quantity"
+                    />
                     <Button
                         text="Thêm vào giỏ hàng"
                         btnClass="orange-btn"
+                        @click="addProductToCart"
                     />
                     <Button
                         text="Mua ngay"
@@ -54,6 +58,9 @@ import SlideShow from '@/components/common/SlideShow.vue';
 import NumberAdjust from '@/components/common/NumberAdjust.vue';
 import Button from '@/components/common/Button.vue';
 import GridProducts from '@/components/base/GridProducts.vue';
+import { mapStores } from 'pinia'
+import { useCartStore } from '../store/cart';
+// import { mapState } from 'pinia';
 
 // import axios from 'axios';
 export default{
@@ -63,6 +70,8 @@ export default{
     data(){
         return{
             product: null,
+            productId: null,
+            quantity: 1,
             images: [],
         }
     },
@@ -70,30 +79,38 @@ export default{
         this.getProductDetail()
 
     }, 
+    computed: {
+        ...mapStores(useCartStore)
+    },
     methods: {
         async getProductDetail(){
-            const productId = String(this.$route.params.productId)
+            this.productId = String(this.$route.params.productId)
             var requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
                 };
 
-            await fetch(`http://127.0.0.1:8000/api/products/${productId}`, requestOptions)
+            await fetch(`http://127.0.0.1:8000/api/products/${this.productId}`, requestOptions)
             .then(response => response.json())
             .then(res=>{
                 this.product=res[0]
-                console.log(this.product)
                 this.images.push(this.product.product_image)
+                console.log(this.product)
                 this.getProductDescription()
             })
             .catch(error => console.log('error', error));
         },
         getProductDescription(){
             this.$nextTick(()=>{
-                console.log(this.$refs)
             this.$refs.productDetail.insertAdjacentHTML('afterbegin', this.product.description)
             })
             
+        },
+        addProductToCart(){
+            this.quantity = this.$refs.quantity.value
+            console.log(this.quantity)
+            this.cartStore.addToCart(this.product, this.quantity)
+            console.log(this.cartStore.cart)
         }
     }                                                                                                 
 }

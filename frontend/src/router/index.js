@@ -5,6 +5,8 @@ import SuccessOrderPage from '../views/SuccessOrder.vue'
 import SearchPage from '../views/SearchPage.vue'
 import ProductDetail from '../views/ProductDetail.vue'
 import CategoryPage from '../views/CategoryPage.vue'
+import pinia from '@/store/index'
+import { useCartStore } from '@/store/cart'
 
 const routes = [
     {
@@ -16,6 +18,10 @@ const routes = [
         path: '/my-cart',
         name: 'cart-page',
         component: CartPage,
+        beforeEnter: () => {
+            const processStore = useCartStore(pinia); // <-- passing Pinia instance directly
+            console.log(processStore);
+        },
     },
     {
         path: '/success-order',
@@ -26,6 +32,10 @@ const routes = [
         path: '/products/:productId',
         name: 'products',
         component: ProductDetail,
+        beforeEnter: () => {
+            const processStore = useCartStore(pinia); // <-- passing Pinia instance directly
+            console.log(processStore);
+          },
     },
     {
         path: '/search',
