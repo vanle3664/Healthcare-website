@@ -38,6 +38,7 @@
                     <Button
                         text="Mua ngay"
                         btnClass="blue-btn"
+                        @click="buyNow"
                     />
                 </div>
                 
@@ -111,6 +112,10 @@ export default{
             console.log(this.quantity)
             this.cartStore.addToCart(this.product, this.quantity)
             console.log(this.cartStore.cart)
+        },
+        buyNow(){
+            this.addProductToCart()
+            this.$router.push({name: 'cart-page'})
         }
     }                                                                                                 
 }
