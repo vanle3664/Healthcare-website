@@ -41,11 +41,9 @@ export default{
             handleClickOnProduct(){
                 console.log(this.product.product_id)
                 this.$router.push({ name: 'products', params: { productId: this.product.product_id}})
-                this.$forceUpdate();
             },
             addProductToCart(){
                 this.cartStore.addToCart(this.product, 1)
-                console.log(this.cartStore.cart)
             },
             purchaseBtnOnClick(){
                 // console.log(this.product.product_id)

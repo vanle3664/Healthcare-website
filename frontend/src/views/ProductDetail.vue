@@ -1,5 +1,5 @@
 <template>
-    <div class="product-detail" v-if="product!=null">
+    <div class="product-detail" v-if="product!=null && display" ref="reload">
         <div class="product-images-info">
             <div class="slideshow-container">
                 <SlideShow
@@ -86,6 +86,7 @@ export default{
             quantity: 1,
             images: [],
             relatedProducts: [],
+            display: false,
         }
     },
     created() {
@@ -96,11 +97,15 @@ export default{
     },
     watch: {
         $route(){
-            window.location.reload()
+            this.getProductDetail()
+            this.$refs.quantity.value = 1
+            this.$refs.reload.scrollIntoView({ behavior: 'smooth' })
+            // console.log(this.$refs.reload.scrollHeight)
         }
     },
     methods: {
         async getProductDetail(){
+            this.display = false
             this.productId = String(this.$route.params.productId)
             var requestOptions = {
                 method: 'GET',
@@ -114,6 +119,7 @@ export default{
                 this.images=[]
                 this.images.push(this.product.product_image)
                 console.log(this.product)
+                this.display = true
                 this.getProductDescription()
             })
             .catch(error => console.log('error', error));
@@ -130,7 +136,6 @@ export default{
             .then(res=>{
                 this.relatedProducts=res.data.data
                 console.log("related products")
-                console.log(this.relatedProducts)
             })
             .catch(error => console.log('error', error));
         },

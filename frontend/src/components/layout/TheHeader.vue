@@ -105,8 +105,7 @@ import { useCartStore } from "@/store/cart";
 export default {
     name: 'TheHeader',
     created(){
-        const tmp = useCartStore(pinia)
-        console.log(tmp)
+        useCartStore(pinia)
     },
     data() {
         return {

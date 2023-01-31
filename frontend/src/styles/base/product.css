@@ -42,7 +42,7 @@
         justify-content: center;
         align-content: center;
         padding: 10px 0;
-        background-color: #7f9cdf;
+        background-color: #1d48ba;
         color:white;
         font-size: 17px;
         font-weight: 600;
@@ -50,5 +50,5 @@
         cursor: pointer;
     }
     .product-card .purchase-btn:hover{
-        background-color: #1d48ba;
+        background-color: #7f9cdf;
     }

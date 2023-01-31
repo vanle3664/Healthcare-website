@@ -52,8 +52,7 @@ const router = createRouter({
     routes
 })
 router.beforeEach(()=>{
-    const temp = useCartStore(pinia)
-    console.log(temp)
+    useCartStore(pinia)
 })
 
 export default router
