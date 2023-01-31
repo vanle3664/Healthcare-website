@@ -94,6 +94,11 @@ export default{
     computed: {
         ...mapStores(useCartStore)
     },
+    watch: {
+        $route(){
+            window.location.reload()
+        }
+    },
     methods: {
         async getProductDetail(){
             this.productId = String(this.$route.params.productId)
@@ -106,6 +111,7 @@ export default{
             .then(response => response.json())
             .then(res=>{
                 this.product=res[0]
+                this.images=[]
                 this.images.push(this.product.product_image)
                 console.log(this.product)
                 this.getProductDescription()
@@ -130,7 +136,7 @@ export default{
         },
         getProductDescription(){
             this.$nextTick(()=>{
-            this.$refs.productDetail.insertAdjacentHTML('afterbegin', this.product.description)
+                this.$refs.productDetail.insertAdjacentHTML('afterbegin', this.product.description || "<p>Chúng tôi đang cập nhật mô tả cụ thể cho sản phẩm này</p>")
             })
             
         },
