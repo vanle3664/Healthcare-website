@@ -86,8 +86,8 @@ export default {
     },
     created(){
         this.getMess()
-        this.getMainCategory().then(()=> this.getProductByCatId())
-        // this.getProductByCatId()
+        // this.getMainCategory().then(()=> this.getProductByCatId())
+        this.getProductByCatId()
         // this.mainCategories=[
         //     {
         //         cat_id: "Q2F0ZWdvcnk6NDAw",
@@ -124,7 +124,38 @@ export default {
                 },
             ],
             previewImage: null,
-            mainCategories: [],
+            mainCategories: [
+                {
+                    "cat_id": "Q2F0ZWdvcnk6NDAw",
+                    "cat_name": "Thực phẩm chức năng"
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6Mzc5",
+                    "cat_name": "Chăm sóc cá nhân",
+                    
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6MzI1",
+                    "cat_name": "Chăm sóc sức khỏe",
+                
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6NDAx",
+                    "cat_name": "Mẹ và Bé",
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6Mzk5",
+                    "cat_name": "Sản phẩm tiện lợi",
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6Mjg2",
+                    "cat_name": "Dược phẩm",
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6NTU1",
+                    "cat_name": "Chăm sóc sắc đẹp",
+                }
+            ],
             routeToCat: [],
             showLoading: true,
         }
@@ -232,9 +263,9 @@ export default {
         },
         pickFile(){
             let input = this.$refs.imageInput
-            console.log(input)
+            // console.log(input)
             let file = input.files
-            console.log(file)
+            // console.log(file)
             if (file && file[0]) {
                 let reader = new FileReader 
                 reader.onload = e => {
@@ -245,7 +276,7 @@ export default {
             }
         },
         selectImage(){
-            this.$refs.imageInput.click()
+            // this.$refs.imageInput.click()
         },
         setSearchValue(){
             // console.log(`Search key word is: ${this.searchText}`)
@@ -255,24 +286,41 @@ export default {
             this.routeToCat.push("/category/" + name + "/" + id)
         },
         searchByImage(){
-            let myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            // myHeaders.append('Access-Control-Allow-Origin', 'http://192.168.1.105:8080');
-            // myHeaders.append('Access-Control-Allow-Methods', 'GET, POST, PUT')
-            // myHeaders.append('Access-Control-Allow-Headers', 'Content-Type')
+            var formdata = new FormData();
+            formdata.append("file", this.$refs.imageInput.files[0]);
 
-            // myHeaders.append('mode', 'no-cors');
-
-            let requestOptions = {
+            var requestOptions = {
             method: 'POST',
-            headers: myHeaders,
+            body: formdata,
             redirect: 'follow'
             };
 
-            fetch("http://localhost:8000/test", requestOptions)
+            fetch("http://localhost:8080/search-by-image", requestOptions)
             .then(response => response.text())
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+                this.$router.push(`/search?keyword=${result}`)
+            })
             .catch(error => console.log('error', error));
+
+            // let myHeaders = new Headers();
+            // // myHeaders.append("Content-Type", "application/json");
+            // // myHeaders.append('Access-Control-Allow-Origin', 'http://localhost:8000');
+            // // myHeaders.append('Access-Control-Allow-Methods', 'GET, POST, PUT')
+            // // myHeaders.append('Access-Control-Allow-Headers', 'Content-Type')
+
+            // // myHeaders.append('mode', 'no-cors');
+
+            // let requestOptions = {
+            // method: 'POST',
+            // headers: myHeaders,
+            // redirect: 'follow'
+            // };
+
+            // fetch("http://localhost:8000/test", requestOptions)
+            // .then(response => response.text())
+            // .then(result => console.log(result))
+            // .catch(error => console.log('error', error));
         }
     },
     computed: {

@@ -117,7 +117,10 @@
                 cursor: pointer;
             }
 
-        
+    .search-page .loading-bar-custom{
+        align-items: center;
+        justify-items: center;
+    }
     .search-page .search-content{
         background-color: #fff;
         width: 80%;

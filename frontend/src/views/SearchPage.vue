@@ -19,7 +19,8 @@
                 
             </div>
         </div>
-        <div class="search-content">
+        <div v-if="showLoading" class="loading-bar-custom"><LoadingBar /></div>
+        <div v-else class="search-content">
             <div v-if="this.data.total">
                 <GridProducts :products-list="products"></GridProducts>
                 <div class="btn">
@@ -49,11 +50,12 @@
 <script>
 // import InputItem from '../components/common/InputItem.vue';
 import GridProducts from '../components/base/GridProducts.vue';
+import LoadingBar from '@/components/common/LoadingBar.vue';
 export default {
     name: 'SearchPage',
     components: {
         //InputItem,
-        GridProducts,
+        GridProducts, LoadingBar
     },
     data(){
         return {
@@ -64,7 +66,8 @@ export default {
             brandFilterValue: null,
             current_page: 1,
             last_page: null,
-            price_arrange: "asc"
+            price_arrange: "asc",
+            showLoading: true
         }
         
     },
@@ -110,6 +113,7 @@ export default {
             } catch (error) {
                 console.log(error);
             }
+            this.showLoading = false
 
         },
         handleChangePage(a){
