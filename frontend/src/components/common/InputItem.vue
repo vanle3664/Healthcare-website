@@ -72,7 +72,7 @@ export default {
         handleClickEye(){
             this.showPass = !this.showPass
             this.modelType = (this.showPass)?"text":"password"
-            console.log("change model type")
+            // console.log("change model type")
             // this.modelType = (this.modelType == "text") ? "password" : "text"
             // if (this.modelType == "text")
             //     this.$emit('update:modelType', "password")
@@ -82,7 +82,7 @@ export default {
                 this.modelType = "password"
             else 
                 this.modelType = "text"
-            console.log(this.modelType)
+            // console.log(this.modelType)
         },
         setSearchValue(){
             this.$emit('inputOnEnter')

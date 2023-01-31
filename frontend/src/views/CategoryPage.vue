@@ -19,7 +19,8 @@
                 
             </div>
         </div>
-        <div class="category-content">
+        <LoadingBar v-if="isLoading" />
+        <div v-else class="category-content">
             <GridProducts :products-list="products"></GridProducts>
             <div class="btn">
                 <div ref="back" class="back-next-btn disable" @click="handleChangePage(`back`)">
@@ -38,11 +39,11 @@
 
 <script>
 import GridProducts from '../components/base/GridProducts.vue';
-
+import LoadingBar from '../components/common/LoadingBar.vue'
 export default {
     name: 'CategoryPage',
     components: {
-        GridProducts,
+        GridProducts, LoadingBar
     },
     data(){
         return {
@@ -53,7 +54,8 @@ export default {
             brandFilterValue: null,
             current_page: 1,
             last_page: null,
-            price_arrange: "asc"
+            price_arrange: "asc",
+            isLoading: true
         }
         
     },
@@ -96,9 +98,10 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-
+            this.isLoading = false
         },
         handleChangePage(a){
+            this.isLoading = true
             if (a == "back" && this.current_page > 1){
                 this.current_page = this.current_page - 1
                 this.getcategoryData()
@@ -113,6 +116,7 @@ export default {
             }
             // if (this.curent_page != 0)
             //     this.getcategoryData()
+            this.isLoading = false
         },
         // getImgUrl(drug) {
         //     return require('../assets/images/' + drug +'.jpg');

@@ -174,11 +174,8 @@ export default {
             }
         },
         async getProductByCatId(){
-            console.log("here get product by id ")
             for (let i = 0; i < this.mainCategories.length; i++){
                 let cat = this.mainCategories[i]
-                console.log("category: " + cat)
-                console.log("cat id: " + cat.cat_id)
                 let url = "http://127.0.0.1:8000/api/products/categories/" + cat.cat_id
                 await fetch(url)
                     .then(res=>res.json())
@@ -195,22 +192,17 @@ export default {
             var productCard = document.querySelector('.product-card')
             var productWidth = productCard.getBoundingClientRect().width
             this.$refs.productList.scrollLeft += productWidth
-            console.log(this.$refs.productList.scrollLeft)
-
         },
         prevBtnOnClick(){
             var productCard = document.querySelector('.product-card')
             var productWidth = productCard.getBoundingClientRect().width;
             this.$refs.productList.scrollLeft -= productWidth
-            console.log(this.$refs.productList)
             
         },
         searchRecOnClick(event){
-            console.log(event.target.innerHTML)
             this.searchText = event.target.innerHTML
         },
         handleClickChat(){
-            console.log(!this.isClickBot)
             this.isClickBot = !this.isClickBot
         },
         async getMess(){
@@ -226,7 +218,7 @@ export default {
             "message": this.mess
             });
 
-            console.log(raw)
+            // console.log(raw)
 
             let requestOptions = {
             method: 'POST',
@@ -298,7 +290,7 @@ export default {
             fetch("http://localhost:8080/search-by-image", requestOptions)
             .then(response => response.text())
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 this.$router.push(`/search?keyword=${result}`)
             })
             .catch(error => console.log('error', error));
