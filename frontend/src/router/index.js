@@ -18,10 +18,6 @@ const routes = [
         path: '/my-cart',
         name: 'cart-page',
         component: CartPage,
-        beforeEnter: () => {
-            const processStore = useCartStore(pinia); // <-- passing Pinia instance directly
-            console.log(processStore);
-        },
     },
     {
         path: '/success-order',
@@ -32,10 +28,6 @@ const routes = [
         path: '/products/:productId',
         name: 'products',
         component: ProductDetail,
-        beforeEnter: () => {
-            const processStore = useCartStore(pinia); // <-- passing Pinia instance directly
-            console.log(processStore);
-          },
     },
     {
         path: '/search',
@@ -47,7 +39,6 @@ const routes = [
         path: '/:catId',
         name: 'category',
         component: CategoryPage,
-        // props: route => ({cat: route.params.catName})
     },
     {
         path: '/category/:catName/:catId',
@@ -59,6 +50,10 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes
+})
+router.beforeEach(()=>{
+    const temp = useCartStore(pinia)
+    console.log(temp)
 })
 
 export default router

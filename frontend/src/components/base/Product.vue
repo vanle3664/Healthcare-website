@@ -51,7 +51,7 @@ export default{
                 // this.$router.push({ name: 'products', params: { productId: this.product.product_id}})
 
                 this.addProductToCart()
-                this.$router.push({name: 'cart-page'})
+                // this.$router.push({name: 'cart-page'})
             }
         },
 }

@@ -8,7 +8,7 @@
         </div>
         <div class="cart" @click="handleClickCart">
             <div class="cart-logo"></div>
-            <div class="cart-number"></div>
+            <div class="cart-number">{{cartStore.cart.length}}</div>
             <div class="cart-text">Giỏ hàng</div>
         </div>
     </div>
@@ -98,8 +98,16 @@
 </template>
 <script>
 import InputItem from "../common/InputItem.vue"
+import pinia from "@/store";
+import { mapStores } from "pinia";
+import { useCartStore } from "@/store/cart";
+
 export default {
     name: 'TheHeader',
+    created(){
+        const tmp = useCartStore(pinia)
+        console.log(tmp)
+    },
     data() {
         return {
             account: {
@@ -121,6 +129,9 @@ export default {
     },
     components: {
         InputItem,
+    },
+    computed: {
+        ...mapStores(useCartStore)
     },
     methods: { 
         handleClickCart(){

@@ -35,9 +35,6 @@
             color: white;
             font-size: 25px;
         }
-        .header .account i:hover{
-            
-        }
         .header .account .account-name{
             position: absolute;
             left: 30px;
@@ -70,6 +67,11 @@
             height: 15px;
             border-radius: 100%;
             background-color: orange !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
         }
         .header .cart .cart-text{
             height: 30px;
