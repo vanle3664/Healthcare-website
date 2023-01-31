@@ -16,6 +16,27 @@ stories:
     steps:
       - intent: chao
       - action: utter_chao
+      - intent: tam_biet
+      - action: utter_tam_biet
+
+  - story: hoi trieu chung va thuoc
+    steps:
+      - intent: chao
+      - action: utter_chao
+      - intent: dua_trieu_chung
+        entities:
+          - symptoms: "ngứa"
+      - slot_was_set:
+          - symptoms: "ngứa"
+      - action: action_chan_doan
+      - intent: hoi_thuoc_dieu_tri
+        entities:
+          - diseases: "thương hàn"
+      - slot_was_set:
+          - diseases: "thương hàn"
+      - action: action_dua_thuoc
+      - intent: tam_biet
+      - action: utter_tam_biet
 
   - story: hoi trieu chung
     steps:
@@ -23,9 +44,22 @@ stories:
       - action: utter_chao
       - intent: dua_trieu_chung
         entities:
-          - symptoms: ngứa
+          - symptoms: "ngứa"
       - slot_was_set:
-          - symptoms: ngứa
+          - symptoms: "ngứa"
       - action: action_chan_doan
+      - intent: tam_biet
+      - action: utter_tam_biet
+
+  - story: hoi thuoc dieu tri
+    steps:
+      - intent: chao
+      - action: utter_chao
+      - intent: hoi_thuoc_dieu_tri
+        entities:
+          - diseases: "thương hàn"
+      - slot_was_set:
+          - diseases: "thương hàn"
+      - action: action_dua_thuoc
       - intent: tam_biet
       - action: utter_tam_biet
