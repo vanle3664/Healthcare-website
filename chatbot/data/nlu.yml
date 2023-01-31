@@ -61,6 +61,196 @@ nlu:
 
   - intent: dua_trieu_chung
     examples: |
-      - tôi bị [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)
-      - triệu chứng của tôi là [ngứa](symptoms), [phát ban](symptoms) và [da nổi sần](symptoms)
-      - tôi [ngứa](symptoms), [phát ban](symptoms), [da nổi sần](symptoms) lắm
+      - tôi bị [ngứa](symptoms), [phát ban da](symptoms) và [da nổi sần](symptoms)
+      - triệu chứng của tôi là [ngứa](symptoms), [phát ban da](symptoms) và [da nổi sần](symptoms)
+      - tôi [ngứa](symptoms), [phát ban da](symptoms), [da nổi sần](symptoms) lắm
+      - [ngứa](symptoms), [phát ban da](symptoms), [da nổi sần](symptoms) thì bị bệnh gì
+      - bệnh gì thì bị [ngứa](symptoms), [phát ban da](symptoms), [da nổi sần](symptoms)
+
+  - intent: hoi_thuoc_dieu_tri
+    examples: |
+      - bị [nhiễm nấm](diseases) thì dùng thuốc gì
+      - nên mua thuốc nào khi bị [viêm dạ dày ruột](diseases)
+      - [thương hàn](diseases) thì dùng thuốc gì điều trị
+      - thuốc cho bệnh [viêm gan A](diseases)
+      - [viêm gan A](diseases) cần thuốc gì
+      - chữa [thương hàn](diseases) như thế nào
+      - làm sao để khỏi [viêm gan A](diseases)
+
+  - lookup: symptoms
+    examples: |
+      - Ngứa
+      - Phát ban da
+      - Da nổi sần
+      - Hắt hơi liên tục
+      - Run rẩy
+      - Ớn lạnh
+      - Đau khớp
+      - Đau dạ dày
+      - Chua miệng
+      - Nhiệt lưỡi
+      - Tiêu cơ
+      - Nôn mửa
+      - Tiểu đau
+      - Tiểu ra máu
+      - Mệt mỏi
+      - Tăng cân
+      - Lo âu
+      - Chân tay lạnh
+      - Nhanh chóng thay đổi tâm trạng
+      - Giảm cân
+      - Bồn chồn
+      - Uể oải
+      - Đốm trong cổ họng
+      - Chỉ số đường huyết bất thường
+      - Ho
+      - Sốt cao
+      - Mắt trũng sâu
+      - Khó thở
+      - Đổ mồ hôi
+      - Mất nước
+      - Khó tiêu
+      - Đau đầu
+      - Vàng da
+      - Nước tiểu đậm màu
+      - Buồn nôn
+      - Chán ăn
+      - Đau phía sau mắt
+      - Đau lưng
+      - Táo bón
+      - Đau bụng
+      - Tiêu chảy
+      - Sốt nhẹ
+      - Nước tiểu vàng
+      - Vàng mắt
+      - Suy gan cấp
+      - Quá tải dịch
+      - Đầy bụng
+      - Sưng hạch bạch huyết
+      - Khó chịu
+      - Mắt nhìn mờ, méo mó 
+      - Đờm
+      - Ngứa cổ họng
+      - Mắt đỏ
+      - Áp lực xoang
+      - Sổ mũi
+      - Nghẹt mũi
+      - Tức ngực
+      - Tê yếu chân tay
+      - Tim đập nhanh
+      - Đi ngoài đau rát
+      - Đau hậu môn
+      - Phân có máu
+      - Ngứa hậu môn
+      - Đau cổ
+      - Chóng mặt
+      - Chuột rút
+      - Bầm tím
+      - Béo phì
+      - Phù chân
+      - Viêm mạch máu
+      - Sưng mặt sưng mắt
+      - Phình tuyến giáp
+      - Móng tay giòn dễ gãy
+      - Phù nề
+      - Ăn nhiều
+      - Quan hệ ngoài hôn nhân
+      - Môi khô ngứa
+      - Nói lắp
+      - Đau đầu gối
+      - Đau khớp háng
+      - Yếu cơ
+      - Cứng cổ
+      - Sưng khớp
+      - Cứng khớp
+      - Quay cuồng
+      - Mất thăng bằng
+      - Choáng váng
+      - Tê một bên người
+      - Mất mùi
+      - Đau bàng quang
+      - Nước tiểu có mùi hôi
+      - Mắc tiểu liên tục
+      - Xì hơi
+      - Ngứa bên trong
+      - Nổi ban
+      - Chán nản
+      - Hay cáu gắt
+      - Đau cơ
+      - Rối loạn ý thức
+      - Nổi đốm đỏ
+      - Đau bụng trên rốn (đau âm ỉ)
+      - Kinh nguyệt bất thường
+      - Rối loạn sắc tố da
+      - Chảy nước mắt
+      - Thèm ăn
+      - Đi tiểu nhiều
+      - Có tiền sử bệnh trong gia đình
+      - Đờm, chất nhầy
+      - Đờm màu nâu
+      - Mất tập trung
+      - Rối loạn thị giác
+      - Nhận truyền máu
+      - Tiêm không vô trùng
+      - Mê man
+      - Xuất huyết dạ dày
+      - Chướng bụng
+      - Tiền sử uống rượu
+      - Khạc đờm ra máu
+      - Giãn tĩnh mạch bắp chân
+      - Đánh trống ngực
+      - Đau chân khi đi bộ
+      - Mụn mủ
+      - Mụn đầu đen
+      - Sẹo mặt
+      - Tróc vẩy
+      - Vảy lốm đốm bạc
+      - Rỗ móng tay
+      - Viêm quanh móng
+      - Mụn rộp
+      - Loét đỏ quanh mũi
+      - Dịch vàng chảy ra
+
+  - lookup: diseases
+    examples: |
+      - Nhiễm nấm
+      - Dị ứng
+      - Trào ngược dạ dày thực quản
+      - Ứ mật mãn tính
+      - Phản ứng thuốc
+      - Loét dạ dày tá tràng
+      - AIDS
+      - Tiểu đường
+      - Viêm dạ dày ruột
+      - Hen phế quản
+      - Tăng huyết áp
+      - Đau nửa đầu
+      - Thoái hóa đốt sống cổ
+      - Liệt (xuất huyết não)
+      - Vàng da
+      - Sốt rét
+      - Thủy đậu
+      - Sốt xuất huyết
+      - Thương hàn
+      - Viêm gan A
+      - Viêm gan B
+      - Viêm gan C
+      - Viêm gan siêu vi D
+      - Viêm gan E
+      - Viêm gan do rượu
+      - Lao
+      - Cảm lạnh thông thường
+      - Viêm phổi
+      - Trĩ
+      - Đau tim
+      - Suy tĩnh mạch
+      - Suy giáp
+      - Cường giáp
+      - Hạ đường huyết
+      - Viêm xương khớp
+      - Viêm khớp
+      - Chóng mặt tư thế kịch phát
+      - Mụn
+      - Nhiễm trùng đường tiết niệu
+      - Vảy nến
+      - Chốc lở

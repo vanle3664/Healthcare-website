@@ -1,25 +1,3 @@
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-# from typing import Any, Text, Dict, List
-# from rasa_sdk.events import SlotSet
-
-# import logging
-# logger = logging.getLogger(__name__)
-# logging.basicConfig(level='DEBUG')
-# logger.info("LOG")
-
-# class PredictAction(Action):
-
-#     def name(self):
-#         return "action_chan_doan"
-
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         print('zap', tracker.slots)
-#         symptoms = tracker.slots.get('symptoms')
-#         print(symptoms)
-#         mess="Các triệu chứng của bạn là " + symptoms
-#         dispatcher.utter_message(text=mess)
-#         return []
 from typing import Any, Text, Dict, List
 
 from rasa_sdk.events import SlotSet
@@ -28,7 +6,7 @@ from rasa_sdk.executor import CollectingDispatcher
 
 import pandas as pd
 import numpy as np
-import joblib
+import csv
 from keras.models import load_model
 
 
@@ -42,7 +20,7 @@ class ActionDiseasePrediction(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         symptoms_user = tracker.get_slot("symptoms")
-
+      
         symptoms = pd.read_csv('Symptoms.csv', header=None)
         symptoms.columns=['EN', 'VN']
         symptoms['VN'] = symptoms['VN'].str.lower()
@@ -55,7 +33,7 @@ class ActionDiseasePrediction(Action):
 
         train_symptoms = list(symptoms['EN'])
         symptoms_enc = np.zeros(131)
-        for s in symptoms_user:
+        for s in set(symptoms_user):
             symptoms_enc[train_symptoms.index(symptoms_dict[s.lower()])] = 1
         symptoms_df = pd.DataFrame([symptoms_enc], columns=train_symptoms)
 
@@ -74,5 +52,28 @@ class ActionDiseasePrediction(Action):
         if not ds_pred:
             dispatcher.utter_message(text="Chưa chẩn đoán được.")
         else:
-            dispatcher.utter_message(text=f"Bạn có thể bị {ds_pred} với khả năng {pct_pred}!")
+            dispatcher.utter_message(text=f"Bạn có thể bị mắc các bệnh: \n {ds_pred[0]} với khả năng {pct_pred[0]}% \n {ds_pred[1]} với khả năng {pct_pred[1]}% \n {ds_pred[2]} với khả năng {pct_pred[2]}%")
         return []
+
+class ActionDrugForDisease(Action):
+
+    def name(self) -> Text:
+        return "action_dua_thuoc"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        disease_user = tracker.get_slot("diseases")
+        
+        mapping_drug = {}
+        with open('Drug.csv', mode='r', encoding="utf8") as infile:
+            reader = csv.reader(infile)
+            mapping_drug = {rows[1].lower():rows[2] for rows in reader}
+
+        if ((disease_user not in mapping_drug.keys()) | (mapping_drug[disease_user] == 'N/A')):
+            dispatcher.utter_message(text=f"Hiện tại chưa có dữ liệu về thuốc cho bệnh {disease_user}")
+        else:
+            dispatcher.utter_message(text=f"Các loại thuốc có thể dùng cho bệnh {disease_user}: {mapping_drug[disease_user]}")
+        return []
+        

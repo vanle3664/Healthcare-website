@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-diseases",
+      "2": "I-diseases",
+      "3": "L-diseases",
+      "4": "U-diseases",
+      "5": "B-symptoms",
+      "6": "I-symptoms",
+      "7": "L-symptoms",
+      "8": "U-symptoms",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-diseases": 1,
+      "I-diseases": 2,
+      "L-diseases": 3,
+      "U-diseases": 4,
+      "B-symptoms": 5,
+      "I-symptoms": 6,
+      "L-symptoms": 7,
+      "U-symptoms": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]
