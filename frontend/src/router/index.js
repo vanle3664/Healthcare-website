@@ -5,6 +5,8 @@ import SuccessOrderPage from '../views/SuccessOrder.vue'
 import SearchPage from '../views/SearchPage.vue'
 import ProductDetail from '../views/ProductDetail.vue'
 import CategoryPage from '../views/CategoryPage.vue'
+import pinia from '@/store/index'
+import { useCartStore } from '@/store/cart'
 
 const routes = [
     {
@@ -23,8 +25,8 @@ const routes = [
         component: SuccessOrderPage,
     },
     {
-        path: '/product',
-        name: 'product-detail',
+        path: '/products/:productId',
+        name: 'products',
         component: ProductDetail,
     },
     {
@@ -37,13 +39,20 @@ const routes = [
         path: '/:catId',
         name: 'category',
         component: CategoryPage,
-        // props: route => ({cat: route.params.catName})
+    },
+    {
+        path: '/category/:catName/:catId',
+        name: 'category',
+        component: CategoryPage
     }
 ]
 
 const router = createRouter({
     history: createWebHistory(),
     routes
+})
+router.beforeEach(()=>{
+    useCartStore(pinia)
 })
 
 export default router

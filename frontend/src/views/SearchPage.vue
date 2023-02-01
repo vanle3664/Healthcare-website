@@ -19,27 +19,29 @@
                 
             </div>
         </div>
-        <div class="search-content">
-            <div class="product-result">
-                <div class="product-card" v-for="(product, index) in products" :key="index">
-                    <div class="product-img">
-                        <img :src=product.product_image>
+        <div v-if="showLoading" class="loading-bar-custom"><LoadingBar /></div>
+        <div v-else class="search-content">
+            <div v-if="this.data.total">
+                <GridProducts :products-list="products"></GridProducts>
+                <div class="btn">
+                    <div class="back-next-btn" @click="handleChangePage(`back`)">
+                        Back 
+                        <i class="fa-solid fa-arrow-left" ></i>         
                     </div>
-                    <div class="product-name">{{product.product_name}}</div>
-                    <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
-                    <div class="purchase-btn" @click="addToCart(product)">Mua hàng</div>
+                    <div>page {{current_page}}</div>
+                    <div class="back-next-btn" @click="handleChangePage(`next`)">
+                        Next 
+                        <i class="fa-solid fa-arrow-right" ></i>          
+                    </div>
                 </div>
             </div>
-            <div class="btn">
-                <div class="back-next-btn" @click="handleChangePage(`back`)">
-                    Back 
-                    <i class="fa-solid fa-arrow-left" ></i>         
-                </div>
-                <div>page {{current_page}}</div>
-                <div class="back-next-btn" @click="handleChangePage(`next`)">
-                    Next 
-                    <i class="fa-solid fa-arrow-right" ></i>          
-                </div>
+            <div v-else class="empty-search">
+                <img :src="require('../../src/assets/images/no result found.png')" alt="empty-result">
+                
+                <p>
+                    Tiếc quá! HealthCare không tìm thấy nội dung nào phù hợp với từ khóa                
+                    <b>“{{this.$route.query.keyword}}”</b>
+                </p>
             </div>
         </div>
     </div>
@@ -47,10 +49,13 @@
 
 <script>
 // import InputItem from '../components/common/InputItem.vue';
+import GridProducts from '../components/base/GridProducts.vue';
+import LoadingBar from '@/components/common/LoadingBar.vue';
 export default {
     name: 'SearchPage',
     components: {
         //InputItem,
+        GridProducts, LoadingBar
     },
     data(){
         return {
@@ -61,7 +66,8 @@ export default {
             brandFilterValue: null,
             current_page: 1,
             last_page: null,
-            price_arrange: "asc"
+            price_arrange: "asc",
+            showLoading: true
         }
         
     },
@@ -107,6 +113,7 @@ export default {
             } catch (error) {
                 console.log(error);
             }
+            this.showLoading = false
 
         },
         handleChangePage(a){

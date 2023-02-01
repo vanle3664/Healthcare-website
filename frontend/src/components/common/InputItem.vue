@@ -10,7 +10,8 @@
             
         >
         <div class="search-icon" v-if="searchInput" @click="handleClickSearch">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i v-if="!modelValue" class="fa-solid fa-magnifying-glass" :style="{'color': '#2f546e'}"></i>
+            <i v-else class="fa-solid fa-magnifying-glass" :style="{'color': '#fff'}"></i>
         </div>
         <div class="blind-icon" v-if="blindInput" @click="handleClickEye">
             <i v-if="showPass" class="fa-solid fa-eye"></i>
@@ -63,13 +64,15 @@ export default {
     },
     methods: {
         handleClickSearch(){
-            this.isClickSearch = true
-            this.$router.push(`/search?keyword=${this.modelValue}`)
+            if (this.modelValue){
+                this.isClickSearch = true
+                this.$router.push(`/search?keyword=${this.modelValue}`)
+            }
         }, 
         handleClickEye(){
             this.showPass = !this.showPass
             this.modelType = (this.showPass)?"text":"password"
-            console.log("change model type")
+            // console.log("change model type")
             // this.modelType = (this.modelType == "text") ? "password" : "text"
             // if (this.modelType == "text")
             //     this.$emit('update:modelType', "password")
@@ -79,7 +82,7 @@ export default {
                 this.modelType = "password"
             else 
                 this.modelType = "text"
-            console.log(this.modelType)
+            // console.log(this.modelType)
         },
         setSearchValue(){
             this.$emit('inputOnEnter')

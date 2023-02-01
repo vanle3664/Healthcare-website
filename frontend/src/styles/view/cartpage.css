@@ -60,13 +60,12 @@
                     align-items: center;
                     position: relative;
                     padding-right: 15px;
+                    width: 100%;
                 }
                     .top_info{
                         display: flex;
                         position: relative;
                         flex-direction: row;
-                        justify-content: space-between;
-                        justify-items: center;
                         align-items: center;
                     }
                         .product_name{
@@ -112,6 +111,7 @@
                             /* align-self: center; */
                             align-content: center;
                             width: 5%;
+                            margin-left: 10px;
                         }
                             .delete i:hover{
                                 color:#f70000;
@@ -288,4 +288,5 @@
         border-radius: 100px;
         cursor: pointer;
     }
+
                     

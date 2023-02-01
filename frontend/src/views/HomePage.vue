@@ -16,31 +16,22 @@
                 <div class="hot-item" v-for="(item, index) in hotItems" :key="index" v-on:click="searchRecOnClick($event)">{{item}}</div>
             </div>
         </div>
-        <div class="product-category" v-for="(mainCat, index1) in mainCategories" :key="index1">
-            <label>{{mainCat.cat_name}}</label>
-            <router-link :to=mainCat.cat_id>Xem thêm</router-link>
+        <div class="product-category" v-for="(mainCat, index1) in completeCategories" :key="index1">
+            <label>{{mainCat.cat_name}}{{setRouteToCategory(mainCat.cat_name, mainCat.cat_id)}}</label>
+            <router-link :to=routeToCat[index1]>Xem thêm</router-link>
             <div class="product-list scrollable-invisible" ref="productList">
                 <div class="prev-btn slide-btn" v-on:click="prevBtnOnClick()">
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
-                <!-- <div class="product-card" v-for="(product, index) in products" :key="index">
-                    <div class="product-img">
-                        <img :src="getImgUrl(product.img)">
-                    </div>
-                    
-                    <div class="product-name">{{product.name}}</div>
-                    <div class="product-price"><span>{{product.price}}VND</span>/Sản phẩm</div>
-                </div> -->
                 <Product v-for="(product, index2) in products[index1]" :key="index2"
-                    :name="product.product_name"
-                    :imageUrl="product.product_image"
-                    :price="product.price">
+                    :product="product">
                 </Product>
                 <div class="next-btn slide-btn" v-on:click="nextBtnOnClick">
                     <i class="fa-solid fa-chevron-right"></i>
                 </div>
             </div>
         </div>
+        <LoadingBar v-if="showLoading"/>
         <div class="chat-bot">
             <div class="chat-icon" @click="handleClickChat()">
                 <i class="fa-solid fa-comments"></i>
@@ -55,7 +46,7 @@
                     </div>
                 </div>
                 <div class="send-msg">
-                    <input>
+                    <input v-model="mess" @keyup.enter="getMess">
                     <i class="fa-solid fa-paper-plane"></i>
                 </div>
             </div>
@@ -72,7 +63,7 @@
                     <div class="image-preview-wrapper" :style="{ 'background-image': `url(${previewImage})` }" @click="selectImage()"></div>
                 </div>
                 <div class="popup-footer">
-                    <button>Tìm kiếm</button>
+                    <button @click="searchByImage">Tìm kiếm</button>
                 </div>
             </div>
             
@@ -83,6 +74,7 @@
 <script>
 import InputItem from '../components/common/InputItem.vue';
 import Product from '@/components/base/Product.vue';
+import LoadingBar from '@/components/common/LoadingBar.vue';
 
 export default {
     name: 'HomePage',
@@ -90,10 +82,12 @@ export default {
         resultSearch: []
     },
     components: {
-        InputItem, Product,
+        InputItem, Product, LoadingBar
     },
     created(){
-        this.getMainCategory().then(()=> this.getProductByCatId())
+        this.getMess()
+        // this.getMainCategory().then(()=> this.getProductByCatId())
+        this.getProductByCatId()
         // this.mainCategories=[
         //     {
         //         cat_id: "Q2F0ZWdvcnk6NDAw",
@@ -108,60 +102,6 @@ export default {
         //         cat_slug: "cham-soc-ca-nhan"
         //     }
         // ],
-        this.msgs=[
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys djfk akfj alfjk alfj alfkjd djf '
-                },
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '2',
-                    receiverId: '1',
-                    content: 'Do you know BTS ?'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys'
-                },
-                {
-                    senderId: '1',
-                    receiverId: '2',
-                    content: 'International playboys djfk akfj alfjk alfj alfkjd djf '
-                },
-                
-                
-            ]
         
     },
     data(){
@@ -170,43 +110,81 @@ export default {
             hotItems: [
                 'Thuốc', 'Vitamin', 'Thực phẩm chức năng'
             ],
-            products: [[], [], [], [], [], [], []],
+            products: [],
             isClickBot: false,
-            myId: '1',
-            msgs: [],
+            myId: '2',
+            msgs: [
+                {
+                    senderId: '1',
+                    content: 'Welcome to HealthCare doctorbot! Please enter your symtoms below'
+                },
+                {
+                    senderId: '2',
+                    content: 'My symtoms are'
+                },
+            ],
             previewImage: null,
-            mainCategories: [],
-            routeToCat: ""
+            mainCategories: [
+                {
+                    "cat_id": "Q2F0ZWdvcnk6NDAw",
+                    "cat_name": "Thực phẩm chức năng"
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6Mzc5",
+                    "cat_name": "Chăm sóc cá nhân",
+                    
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6MzI1",
+                    "cat_name": "Chăm sóc sức khỏe",
+                
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6NDAx",
+                    "cat_name": "Mẹ và Bé",
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6Mzk5",
+                    "cat_name": "Sản phẩm tiện lợi",
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6Mjg2",
+                    "cat_name": "Dược phẩm",
+                },
+                {
+                    "cat_id": "Q2F0ZWdvcnk6NTU1",
+                    "cat_name": "Chăm sóc sắc đẹp",
+                }
+            ],
+            routeToCat: [],
+            showLoading: true,
         }
     },
     methods: {
         async getMainCategory(){
-            let response = await fetch("http://127.0.0.1:8000/api/categories")
-                .then(res=>res.clone().json())
-            // console.log("get main cat response :" + response)
-            for (let i = 0; i < response.length; i++){
-                this.mainCategories.push(response[i].cat_parent)
-            }    
-            // console.log(response.length)
-            // console.log(response[0])
-            console.log(this.mainCategories[0])
+            try {
+                const response = await fetch("http://127.0.0.1:8000/api/categories")
+                if(!response.ok){
+                    throw Error('Can not load categories api')
+                }
+                const data = await response.json()
+                this.mainCategories = data
+            } catch (error) {
+                console.log(error)
+            }
         },
         async getProductByCatId(){
-            console.log("here get product by id ")
-            console.log(this.mainCategories[1])
             for (let i = 0; i < this.mainCategories.length; i++){
                 let cat = this.mainCategories[i]
-                console.log("category: " + cat)
-                console.log("cat id: " + cat.cat_id)
                 let url = "http://127.0.0.1:8000/api/products/categories/" + cat.cat_id
                 await fetch(url)
-                    .then(res=>res.clone().json())
-                    .then(response => this.products[i] = response.data.data.slice(0, 5))
+                    .then(res=>res.json())
+                    .then(res=>res.data.data)
+                    .then(res=>this.products.push(res))
                 
             }
-            console.log(this.products)   
-        }
-        ,
+            this.showLoading = false   
+        },
         getImgUrl(drug) {
             return require('../assets/images/' + drug +'.jpg');
         },
@@ -214,9 +192,6 @@ export default {
             var productCard = document.querySelector('.product-card')
             var productWidth = productCard.getBoundingClientRect().width
             this.$refs.productList.scrollLeft += productWidth
-            console.log(this.$refs.productList.scrollLeft)
-            // console.log(this.$refs.productList.parentElement.getBoundingClientRect().width - 40)
-            // console.log(this.$refs.productList.getBoundingClientRect().width)
         },
         prevBtnOnClick(){
             var productCard = document.querySelector('.product-card')
@@ -225,12 +200,38 @@ export default {
             
         },
         searchRecOnClick(event){
-            console.log(event.target.innerHTML)
             this.searchText = event.target.innerHTML
         },
         handleClickChat(){
-            console.log(!this.isClickBot)
             this.isClickBot = !this.isClickBot
+        },
+        async getMess(){
+            this.mess = event.target.value
+            // console.log(this.mess)
+            this.msgs.push({senderid: "2", content: `${this.mess}`})
+
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            let raw = JSON.stringify({
+            "senderid": "m1",
+            "message": this.mess
+            });
+
+            // console.log(raw)
+
+            let requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch("http://localhost:5005/webhooks/rest/webhook", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
         },
         getClass(msg){
             return {
@@ -254,9 +255,9 @@ export default {
         },
         pickFile(){
             let input = this.$refs.imageInput
-            console.log(input)
+            // console.log(input)
             let file = input.files
-            console.log(file)
+            // console.log(file)
             if (file && file[0]) {
                 let reader = new FileReader 
                 reader.onload = e => {
@@ -267,21 +268,64 @@ export default {
             }
         },
         selectImage(){
-            this.$refs.imageInput.click()
+            // this.$refs.imageInput.click()
         },
         setSearchValue(){
             // console.log(`Search key word is: ${this.searchText}`)
             this.$router.push(`/search?keyword=${this.searchText}`)
         }, 
-        setRouteToCart(cat){
-            return "/category/" + cat
+        setRouteToCategory(name, id){
+            this.routeToCat.push("/category/" + name + "/" + id)
+        },
+        searchByImage(){
+            var formdata = new FormData();
+            formdata.append("file", this.$refs.imageInput.files[0]);
+
+            var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+            };
+
+            fetch("http://localhost:8080/search-by-image", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                // console.log(result);
+                this.$router.push(`/search?keyword=${result}`)
+            })
+            .catch(error => console.log('error', error));
+
+            // let myHeaders = new Headers();
+            // // myHeaders.append("Content-Type", "application/json");
+            // // myHeaders.append('Access-Control-Allow-Origin', 'http://localhost:8000');
+            // // myHeaders.append('Access-Control-Allow-Methods', 'GET, POST, PUT')
+            // // myHeaders.append('Access-Control-Allow-Headers', 'Content-Type')
+
+            // // myHeaders.append('mode', 'no-cors');
+
+            // let requestOptions = {
+            // method: 'POST',
+            // headers: myHeaders,
+            // redirect: 'follow'
+            // };
+
+            // fetch("http://localhost:8000/test", requestOptions)
+            // .then(response => response.text())
+            // .then(result => console.log(result))
+            // .catch(error => console.log('error', error));
         }
     },
-    // watch: {
-    //     msgs(){
-    //         this.autoScroll()
-    //     }
-    // }
+    computed: {
+        completeCategories(){
+            var result = []
+            this.products.forEach((productsOfCat, index) => {
+                if(productsOfCat.length > 0){
+                    result.push(this.mainCategories[index])
+                }
+            });
+            return result  
+        }
+    }
 }
 </script>
 <style scoped>
