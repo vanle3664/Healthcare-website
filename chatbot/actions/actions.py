@@ -28,8 +28,9 @@ class ActionDiseasePrediction(Action):
 
         disease = pd.read_csv('Disease.csv', header=None)
         disease.columns=['EN', 'VN']
+        disease['VN-hoa'] = disease['VN']
         disease['VN'] = disease['VN'].str.lower()
-        disease_dict = dict(zip(disease['EN'], disease['VN']))
+        disease_dict = dict(zip(disease['EN'], disease['VN-hoa']))
 
         train_symptoms = list(symptoms['EN'])
         symptoms_enc = np.zeros(131)
@@ -49,10 +50,14 @@ class ActionDiseasePrediction(Action):
         ds_pred = [disease_dict[disease_EN[i]] for i in top3]
         pct_pred = [pred[0][i]*100 for i in top3]
 
+        pct_text = []
+        for pct in pct_pred:
+            pct_text.append("{:.2f}".format(round(pct, 2)))
+
         if not ds_pred:
             dispatcher.utter_message(text="Chưa chẩn đoán được.")
         else:
-            dispatcher.utter_message(text=f"Bạn có thể bị mắc các bệnh: \n {ds_pred[0]} với khả năng {pct_pred[0]}% \n {ds_pred[1]} với khả năng {pct_pred[1]}% \n {ds_pred[2]} với khả năng {pct_pred[2]}%")
+            dispatcher.utter_message(text=f"Doctorbot chẩn đoán bạn có thể mắc các bệnh: \n {ds_pred[0]} ({pct_text[0]}%)\n {ds_pred[1]} ({pct_text[1]}%) \n {ds_pred[2]} ({pct_text[2]}%)")
         return []
 
 class ActionDrugForDisease(Action):
@@ -72,7 +77,7 @@ class ActionDrugForDisease(Action):
             mapping_drug = {rows[1].lower():rows[2] for rows in reader}
 
         if ((disease_user not in mapping_drug.keys()) | (mapping_drug[disease_user] == 'N/A')):
-            dispatcher.utter_message(text=f"Hiện tại chưa có dữ liệu về thuốc cho bệnh {disease_user}")
+            dispatcher.utter_message(text=f"Hiện tại Doctorbot chưa có dữ liệu về thuốc cho bệnh {disease_user}")
         else:
             dispatcher.utter_message(text=f"Các loại thuốc có thể dùng cho bệnh {disease_user}: {mapping_drug[disease_user]}")
         return []
